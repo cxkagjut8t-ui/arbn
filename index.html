@@ -1,0 +1,2526 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no">
+  <title>公務員試験 学習＆日程ナビ（2027年度対応）</title>
+  <!-- iPhone Safari ホーム画面追加（PWA風動作）用メタタグ -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="公務員ナビ2027">
+  <meta name="theme-color" content="#0f294a">
+  <meta name="format-detection" content="telephone=no">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            sans: ['"Inter"', '"Hiragino Kaku Gothic ProN"', '"Hiragino Sans"', '"Noto Sans JP"', 'Meiryo', 'sans-serif'],
+          },
+          colors: {
+            navy: {
+              50: '#f0f4fa',
+              100: '#dce6f4',
+              200: '#bfd2ea',
+              600: '#1e4b85',
+              700: '#173b6b',
+              800: '#122f56',
+              900: '#0f294a',
+            }
+          }
+        }
+      }
+    }
+  </script>
+
+  <!-- Google Fonts (Inter + Noto Sans JP) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+JP:wght@400;500;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* iOSセーフエリア・タップ体験最適化のための最小限のベース調整 */
+    :root {
+      --sat: env(safe-area-inset-top, 0px);
+      --sab: env(safe-area-inset-bottom, 0px);
+    }
+    html, body {
+      -webkit-tap-highlight-color: transparent;
+      overscroll-behavior-y: none;
+      background-color: #f2f5f9;
+    }
+    .pt-safe {
+      padding-top: calc(var(--sat) + 0.75rem);
+    }
+    .pb-safe-nav {
+      padding-bottom: calc(var(--sab) + 5.25rem);
+    }
+    .pb-safe {
+      padding-bottom: calc(var(--sab) + 0.5rem);
+    }
+    /* 横スクロールバー非表示（クリーンなiOS風ピルスクロール） */
+    .no-scrollbar::-webkit-scrollbar {
+      display: none;
+    }
+    .no-scrollbar {
+      -ms-overflow-style: none;
+      scrollbar-width: none;
+    }
+    /* 比較表の左端列固定影 */
+    .sticky-col-shadow {
+      box-shadow: 4px 0 8px -4px rgba(15, 41, 74, 0.12);
+    }
+    @keyframes fadeSlideUp {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    .animate-fade-up {
+      animation: fadeSlideUp 0.22s ease-out forwards;
+    }
+  </style>
+</head>
+<body class="font-sans text-slate-800 antialiased selection:bg-blue-200 selection:text-navy-900 overflow-x-hidden">
+
+  <!-- トップヘッダー（iOS風・ネイビー基調・固定） -->
+  <header class="fixed top-0 inset-x-0 z-30 bg-navy-900/95 backdrop-blur-md text-white shadow-sm border-b border-white/10 pt-safe pb-3 px-4">
+    <div class="max-w-2xl mx-auto flex items-center justify-between gap-2">
+      <div class="min-w-0">
+        <div class="flex items-center gap-1.5">
+          <span class="inline-flex items-center justify-center w-6 h-6 rounded-lg bg-blue-500/25 border border-blue-400/40 text-blue-200">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>
+          </span>
+          <h1 id="headerTitle" class="text-base font-bold tracking-tight truncate">公務員試験 学習＆日程ナビ</h1>
+        </div>
+        <p id="headerSubtitle" class="text-[11px] text-blue-200/85 mt-0.5 truncate">2027年度（令和9年度）採用試験対応</p>
+      </div>
+      <div id="headerActionArea" class="shrink-0"></div>
+    </div>
+  </header>
+
+  <!-- メインコンテンツ領域 -->
+  <main id="appMain" class="max-w-2xl mx-auto px-3.5 pt-[5.4rem] pb-safe-nav min-h-screen">
+    <!-- JSでアクティブタブを描画 -->
+  </main>
+
+  <!-- 下部固定 5タブナビゲーション -->
+  <nav class="fixed bottom-0 inset-x-0 z-30 bg-white/95 backdrop-blur-md border-t border-slate-200/90 shadow-[0_-4px_16px_rgba(15,41,74,0.06)] pb-safe">
+    <div class="max-w-2xl mx-auto grid grid-cols-5 px-1 pt-1.5" id="bottomNav">
+      <button type="button" data-tab="home" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition-colors">
+        <span class="nav-icon mb-0.5"></span>
+        <span class="text-[10px] font-semibold leading-tight">ホーム</span>
+      </button>
+      <button type="button" data-tab="study" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition-colors">
+        <span class="nav-icon mb-0.5"></span>
+        <span class="text-[10px] font-semibold leading-tight">学習・章別</span>
+      </button>
+      <button type="button" data-tab="schedule" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition-colors">
+        <span class="nav-icon mb-0.5"></span>
+        <span class="text-[10px] font-semibold leading-tight">日程・予定</span>
+      </button>
+      <button type="button" data-tab="guide" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition-colors">
+        <span class="nav-icon mb-0.5"></span>
+        <span class="text-[10px] font-semibold leading-tight">概要・比較</span>
+      </button>
+      <button type="button" data-tab="settings" class="nav-btn flex flex-col items-center justify-center py-1.5 rounded-xl transition-colors">
+        <span class="nav-icon mb-0.5"></span>
+        <span class="text-[10px] font-semibold leading-tight">区分・設定</span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- 汎用モーダルコンテナ（alert/confirmの完全代替） -->
+  <div id="modalBackdrop" class="fixed inset-0 z-50 hidden bg-slate-900/55 backdrop-blur-[2px] flex items-end sm:items-center justify-center p-0 sm:p-4 transition-opacity">
+    <div id="modalPanel" class="w-full max-w-lg bg-white rounded-t-3xl sm:rounded-3xl shadow-2xl max-h-[88vh] flex flex-col overflow-hidden animate-fade-up">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-slate-100 shrink-0">
+        <h2 id="modalTitle" class="text-base font-bold text-navy-900">モーダル</h2>
+        <button type="button" id="modalCloseBtn" class="w-9 h-9 rounded-full bg-slate-100 hover:bg-slate-200 flex items-center justify-center text-slate-600 transition-colors" aria-label="閉じる">
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/></svg>
+        </button>
+      </div>
+      <div id="modalBody" class="p-5 overflow-y-auto flex-1 space-y-4"></div>
+      <div id="modalFooter" class="px-5 py-3.5 bg-slate-50 border-t border-slate-100 flex items-center justify-end gap-2.5 shrink-0 pb-safe"></div>
+    </div>
+  </div>
+
+  <!-- トースト通知 -->
+  <div id="toastContainer" class="fixed top-20 inset-x-0 z-50 pointer-events-none flex justify-center px-4">
+    <div id="toastBox" class="hidden pointer-events-auto max-w-sm w-full bg-navy-900/95 text-white text-xs font-medium px-4 py-3 rounded-2xl shadow-lg border border-white/10 flex items-center gap-2.5 transition-all">
+      <span id="toastIcon" class="shrink-0"></span>
+      <span id="toastMsg" class="flex-1 leading-snug"></span>
+    </div>
+  </div>
+
+  <!-- バックアップ復元用の非表示ファイル入力 -->
+  <input type="file" id="importFileInput" accept="application/json,.json" class="hidden">
+
+  <script>
+    'use strict';
+
+    /* =========================================================================
+       1. 定数・マスターデータ定義（2027年度対応・受験案内ベース）
+       ========================================================================= */
+    const STORAGE_KEY = 'komuin_study_navi_2027_v2';
+
+    /**
+     * 8区分の試験マスターデータ
+     * 国家3区分は2027年春の確定日を設定、その他5区分は初期状態「未定（""）」
+     */
+    const EXAM_MASTER = [
+      {
+        id: 'national_sogo',
+        shortName: '国家総合職',
+        name: '国家総合職（大卒程度・法律/経済/政治国際等）',
+        category: '国家公務員',
+        defaultFirstDate: '2027-02-28',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '春試験（教養区分は別途秋実施）',
+        defaultTarget: false,
+        color: 'indigo',
+        reqSummary: {
+          kyoyo: '基礎30問（必須）',
+          senmon: '択一40問＋記述3題'
+        },
+        overview: {
+          firstExam: '【基礎能力試験】多肢選択式 30問（知能分野24問＋知識分野6問・解答時間2時間20分）\n【専門試験（多肢選択式）】区分別 40問（解答時間3時間／例：法律区分は憲法・民法・行政法が必須＋選択科目）',
+          secondExam: '【専門試験（記述式）】3題程度（解答時間3〜4時間・区分により異なる）\n【政策論文試験】1題（2時間・英文資料含む場合あり）\n【人物試験】個別面接\n※最終合格後、各省庁の「官庁訪問」を経て内々定。',
+          essayAndDesc: '政策論文（1次ではなく2次で実施）および専門記述試験あり。論理構成力・政策立案視点・専門知識の深い論述が不可欠。',
+          strategy: '配点は2次の専門記述・政策論文・人物試験の比重が非常に高い（1次は突破ライン意識）。2027年春は2月末実施のため、最速スケジュールでの過去問仕上げと英語外部試験（TOEIC等）のスコア加算活用が鍵。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '時事'],
+          senmonTags: ['憲法', '民法', '行政法', 'ミクロ経済学', 'マクロ経済学', '財政学', '政治学', '国際関係']
+        }
+      },
+      {
+        id: 'national_senmon',
+        shortName: '国家専門職',
+        name: '国家専門職［国税専門官・財務専門官等］',
+        category: '国家公務員',
+        defaultFirstDate: '2027-04-25',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '国税専門官／財務専門官／労働基準監督官等',
+        defaultTarget: true,
+        color: 'blue',
+        reqSummary: {
+          kyoyo: '基礎30問（必須）',
+          senmon: '必須2科目＋選択6科目（計40問）＋記述1'
+        },
+        overview: {
+          firstExam: '【基礎能力試験】多肢選択式 30問（知能24問＋知識6問・2時間20分）\n【専門試験（多肢選択式）】40問（2時間20分）。国税専門官は「民法・商法（8問）」「会計学（8問）」の計16問が必須、残り9科目から6科目（各4問＝24問）を選択。',
+          secondExam: '【人物試験】個別面接（面接官3名程度・約20〜30分）\n【身体検査】国税専門官等で実施\n※最終合格後、採用面接（各国税局等）を経て内定。',
+          essayAndDesc: '【専門記述式】1次試験日に実施（1時間20分）。国税専門官は憲法・民法・経済学・会計学・社会学の5科目から1科目を選択し論述（一般論文はなし）。',
+          strategy: '国税専門官は「会計学」が必須8問＋記述選択候補になるため、簿記・会計学の早期着手が合否を分ける。国家一般職・地方上級と出題範囲の重複が大きく併願相性が極めて良い。配点は専門択一と専門記述の比重が高い。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '時事'],
+          senmonTags: ['憲法', '民法', '会計学', 'ミクロ経済学', 'マクロ経済学', '財政学', '経営学', '社会学']
+        }
+      },
+      {
+        id: 'national_ippan',
+        shortName: '国家一般職',
+        name: '国家一般職［大卒程度・行政］',
+        category: '国家公務員',
+        defaultFirstDate: '2027-05-02',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '大卒程度（行政区分）',
+        defaultTarget: true,
+        color: 'sky',
+        reqSummary: {
+          kyoyo: '基礎30問（必須）',
+          senmon: '16科目中8科目選択（40問）'
+        },
+        overview: {
+          firstExam: '【基礎能力試験】多肢選択式 30問（知能24問＋知識6問・2時間20分）\n【専門試験（多肢選択式）】16科目（各5問）から8科目を選択し計40問解答（3時間）。\n【一般論文試験】1題（1時間・1次試験日に実施し2次で評価）。',
+          secondExam: '【人物試験】個別面接（面接カードに基づく質問・評価A〜E）\n※最終合格と並行して、志望する出先機関・本省での「官庁訪問」が内定に必須。',
+          essayAndDesc: '専門記述はなし。一般論文（社会問題・行政課題に関する論述・1時間）のみ。足切り（基準点）回避が重要。',
+          strategy: '配点は専門択一が圧倒的に高い（基礎能力2/9、専門択一4/9、一般論文1/9、人物2/9）。科目選択の自由度が高いため、憲法・民法Ⅰ/Ⅱ・行政法・ミクロ・マクロ・政治学・行政学など得意8科目に絞って高得点を狙うのが王道。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '時事', '時事・教養論文'],
+          senmonTags: ['憲法', '民法', '行政法', 'ミクロ経済学', 'マクロ経済学', '財政学', '政治学', '行政学', '経営学', '社会学', '国際関係']
+        }
+      },
+      {
+        id: 'tokyo',
+        shortName: '東京都庁',
+        name: '東京都庁［Ⅰ類B 一般方式・新方式］',
+        category: '都庁・特別区',
+        defaultFirstDate: '',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '一般方式（専門記述）／新方式（プレゼン等）',
+        defaultTarget: true,
+        color: 'emerald',
+        reqSummary: {
+          kyoyo: '択一40問（知能24必須＋知識16選択）',
+          senmon: '専門記述10科目中3科目選択（択一なし）'
+        },
+        overview: {
+          firstExam: '【一般方式】教養試験（多肢選択40問・2時間：文章理解・数的処理24問必須＋知識分野20問中16問選択）／専門試験（記述式10科目中3科目選択・2時間）／論文試験（1時間30分・1,000〜1,500字程度）\n【新方式】教養試験（またはSPI等）＋プレゼンテーションシート作成等。',
+          secondExam: '【一般方式】口述試験（個別面接1回・約20〜30分）\n【新方式】2次でグループワーク・プレゼン面接、3次で個別面接を実施（人物重視）。',
+          essayAndDesc: '一般方式の最大の特徴は「専門択一がなく、専門記述3科目＋論文」であること。憲法・行政法・政治学・行政学・社会学など暗記型・論述しやすい3科目に絞る戦略が一般的。',
+          strategy: '東京都の課題（少子化・防災・デジタル・環境等）を踏まえた論文対策が極めて重要。教養の数的処理は過去問の類題が多いため、都庁過去問の徹底演習が直結する。日程公表後に手動入力してください。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '社会科学', '人文科学', '自然科学', '時事・教養論文'],
+          senmonTags: ['憲法', '民法', '行政法', 'ミクロ経済学', 'マクロ経済学', '財政学', '政治学', '行政学', '社会学', '会計学']
+        }
+      },
+      {
+        id: 'tokubetsuku',
+        shortName: '特別区',
+        name: '特別区［Ⅰ類 春試験］',
+        category: '都庁・特別区',
+        defaultFirstDate: '',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '春試験（一般）／早期SPI枠は別途設定可',
+        defaultTarget: true,
+        color: 'teal',
+        reqSummary: {
+          kyoyo: '48問中40問選択（知能28＋知識12）',
+          senmon: '11科目55問中8科目40問選択'
+        },
+        overview: {
+          firstExam: '【教養試験】48問出題・40問解答（2時間：文章理解・数的処理28問必須＋知識20問から12問選択）\n【専門試験】11科目（各5問＝計55問）から40問（8科目相当・科目横断選択可）を解答（2時間）\n【論文試験】2題から1題選択（1時間20分・1,000〜1,500字）。',
+          secondExam: '【人事委員会面接】個別面接（プレゼン3分＋質疑応答）\n※最終合格後、希望区の提示を受け各区の「区面接（採用面接）」に合格して内定。',
+          essayAndDesc: '専門記述はなし。教養論文（特別区の行政課題テーマ）の配点比重が高く、論文での高得点が1次突破・上位合格の決め手になる。',
+          strategy: '教養・専門ともに基礎〜標準レベルの問題が多く、選択幅も広いため高得点勝負になりやすい。専門は1問単位での自由選択が可能なため、憲・民・行・経＋行政系科目をバランスよく仕上げると安定する。※早期SPI枠を併願する場合はメモに追記推奨。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '社会科学', '人文科学', '自然科学', '時事・教養論文'],
+          senmonTags: ['憲法', '民法', '行政法', 'ミクロ経済学', 'マクロ経済学', '財政学', '政治学', '行政学', '経営学', '社会学', '会計学']
+        }
+      },
+      {
+        id: 'chihou_jokyu',
+        shortName: '地方上級',
+        name: '地方上級［都道府県庁：神奈川県庁等］',
+        category: '地方自治体',
+        defaultFirstDate: '',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '6月A日程（一般）／早期チャレンジ枠等',
+        defaultTarget: true,
+        color: 'amber',
+        reqSummary: {
+          kyoyo: '約40〜50問（知能＋知識）',
+          senmon: '約40問（法律・経済・行政系）'
+        },
+        overview: {
+          firstExam: '【教養試験】多肢選択式 40〜50問（2時間〜2時間30分：数的処理・文章理解＋社会/人文/自然科学・時事）\n【専門試験】多肢選択式 40問前後（2時間：憲法・民法・行政法・労働法・経済学・財政学・政治学・行政学など）\n※神奈川県庁など一部自治体では専門なし・SPI/SCOA枠や自己アピール試験も実施。',
+          secondExam: '【論文試験】自治体固有の政策課題をテーマとした論述（1次または2次で実施）\n【人物試験】個別面接（複数回実施の自治体多し）・集団討論・適性検査など。',
+          essayAndDesc: '一般枠では専門択一が中心（一部自治体で専門記述あり）。教養論文は「志望自治体の総合計画・地域課題」を踏まえた具体的な提案力が評価される。',
+          strategy: '全国型・関東型・中部北陸型など出題傾向に地域差があるが、主要5科目（数的処理・文章理解・憲法・民法・行政法・経済学）を軸にすれば国家一般職・特別区との併願効率が非常に高い。2次以降は面接配点が高く、自治体研究が不可欠。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '社会科学', '人文科学', '自然科学', '時事・教養論文'],
+          senmonTags: ['憲法', '民法', '行政法', 'ミクロ経済学', 'マクロ経済学', '財政学', '政治学', '行政学', '経営学', '社会学', '国際関係']
+        }
+      },
+      {
+        id: 'seirei',
+        shortName: '政令指定都市',
+        name: '政令指定都市［横浜市・川崎市等］',
+        category: '地方自治体',
+        defaultFirstDate: '',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '一般枠（6月頃）／早期SPI・SCOA枠（春）',
+        defaultTarget: false,
+        color: 'orange',
+        reqSummary: {
+          kyoyo: '約40〜50問（SPI枠は基礎能力のみ）',
+          senmon: '約40問（SPI・新方式枠は専門なし）'
+        },
+        overview: {
+          firstExam: '【一般事務（従来型）】教養試験（40〜50問）＋専門試験（40問：法律・経済・行政系）\n【早期枠・民間併願型（横浜市・川崎市等）】SPI3やSCOAなどの基礎能力検査＋エントリーシート（専門試験なし）が主流化。',
+          secondExam: '【論文・課題式試験】市の政策課題に対する論述\n【人物試験】個別面接（2回程度）、グループワーク・集団討論など。住民目線と協働力を重視。',
+          essayAndDesc: '論文試験あり（市独自の施策・まちづくり・DX・子育て支援等が頻出）。専門記述は原則なし。',
+          strategy: '自治体ごとに試験日程や方式（SPI導入の有無・地方上級との同日実施か別日程か）が大きく異なるため、受験案内が出たら即座に日付と方式を登録して重複チェックするのが重要。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '社会科学', '人文科学', '自然科学', '時事・教養論文'],
+          senmonTags: ['憲法', '民法', '行政法', 'ミクロ経済学', 'マクロ経済学', '財政学', '政治学', '行政学', '社会学']
+        }
+      },
+      {
+        id: 'police_fire',
+        shortName: '警察・消防',
+        name: '警察官・消防官［警視庁・県警・東京消防庁等］',
+        category: '公安系',
+        defaultFirstDate: '',
+        defaultSecondDate: '',
+        defaultDeadline: '',
+        defaultMemo: '警視庁・道府県警・東京消防庁等（専門なし）',
+        defaultTarget: false,
+        color: 'rose',
+        reqSummary: {
+          kyoyo: '教養50問前後＋論文（SPI枠あり）',
+          senmon: '専門試験なし'
+        },
+        overview: {
+          firstExam: '【教養試験】多肢選択式 45〜50問（2時間：数的処理・文章理解・一般知識・時事）※警視庁は漢字テストあり。SPI3方式の前倒し試験・選考枠も拡大中。\n【論文・作文試験】1次試験日に実施（1時間〜1時間20分・800〜1,200字程度）。\n【専門試験】なし。',
+          secondExam: '【人物試験】個別面接（志望動機・誠実さ・ストレス耐性・組織規律を重視）\n【体力検査】反復横跳び・腕立て伏せ・シャトルラン等\n【身体検査・適性検査】視力・聴力・性格検査等。',
+          essayAndDesc: '専門試験・専門記述は一切なし。論文（治安維持・防災・地域住民との信頼関係など）と教養択一、そして面接・体力検査の総合力で合否が決まる。',
+          strategy: '専門科目が不要なため、教養科目（特に配点比率の高い数的処理・文章理解・時事）と論文に集中投資できる。体力検査の基準確認と早めのトレーニング、警察・消防特有の志望動機整理が合格の鍵。',
+          kyoyoTags: ['数的推理', '判断推理', '資料解釈', '文章理解', '社会科学', '人文科学', '自然科学', '時事・教養論文'],
+          senmonTags: []
+        }
+      }
+    ];
+
+    /**
+     * 科目比較マトリクス定義
+     * req: ◎必須, opt: ○選択, essay: △記述, none: ー
+     */
+    const SUBJECT_MATRIX_DEF = [
+      // 教養科目
+      { name: '数的推理', cat: '教養', map: { national_sogo: 'req', national_senmon: 'req', national_ippan: 'req', tokyo: 'req', tokubetsuku: 'req', chihou_jokyu: 'req', seirei: 'req', police_fire: 'req' } },
+      { name: '判断推理', cat: '教養', map: { national_sogo: 'req', national_senmon: 'req', national_ippan: 'req', tokyo: 'req', tokubetsuku: 'req', chihou_jokyu: 'req', seirei: 'req', police_fire: 'req' } },
+      { name: '資料解釈', cat: '教養', map: { national_sogo: 'req', national_senmon: 'req', national_ippan: 'req', tokyo: 'req', tokubetsuku: 'req', chihou_jokyu: 'req', seirei: 'req', police_fire: 'req' } },
+      { name: '文章理解', cat: '教養', map: { national_sogo: 'req', national_senmon: 'req', national_ippan: 'req', tokyo: 'req', tokubetsuku: 'req', chihou_jokyu: 'req', seirei: 'req', police_fire: 'req' } },
+      { name: '社会科学', cat: '教養', map: { national_sogo: 'opt', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'opt', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'req' } },
+      { name: '人文科学', cat: '教養', map: { national_sogo: 'none', national_senmon: 'none', national_ippan: 'none', tokyo: 'opt', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'req' } },
+      { name: '自然科学', cat: '教養', map: { national_sogo: 'none', national_senmon: 'none', national_ippan: 'none', tokyo: 'opt', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'req' } },
+      { name: '時事・教養論文', cat: '教養', map: { national_sogo: 'essay', national_senmon: 'req', national_ippan: 'essay', tokyo: 'essay', tokubetsuku: 'essay', chihou_jokyu: 'essay', seirei: 'essay', police_fire: 'essay' } },
+      // 専門科目
+      { name: '憲法', cat: '専門', map: { national_sogo: 'req', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'none' } },
+      { name: '民法', cat: '専門', map: { national_sogo: 'req', national_senmon: 'req', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'none' } },
+      { name: '行政法', cat: '専門', map: { national_sogo: 'req', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'none' } },
+      { name: 'ミクロ経済学', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'none' } },
+      { name: 'マクロ経済学', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'none' } },
+      { name: '財政学', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'req', seirei: 'opt', police_fire: 'none' } },
+      { name: '政治学', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'none', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'opt', seirei: 'opt', police_fire: 'none' } },
+      { name: '行政学', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'none', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'opt', seirei: 'opt', police_fire: 'none' } },
+      { name: '経営学', cat: '専門', map: { national_sogo: 'none', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'opt', seirei: 'none', police_fire: 'none' } },
+      { name: '社会学', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'opt', national_ippan: 'opt', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'opt', seirei: 'opt', police_fire: 'none' } },
+      { name: '会計学', cat: '専門', map: { national_sogo: 'none', national_senmon: 'req', national_ippan: 'none', tokyo: 'essay', tokubetsuku: 'opt', chihou_jokyu: 'none', seirei: 'none', police_fire: 'none' } },
+      { name: '国際関係', cat: '専門', map: { national_sogo: 'opt', national_senmon: 'none', national_ippan: 'opt', tokyo: 'none', tokubetsuku: 'none', chihou_jokyu: 'opt', seirei: 'none', police_fire: 'none' } }
+    ];
+
+    /**
+     * 初期科目リスト（すべての進捗doneは0、章リストは空からスタート）
+     */
+    function createDefaultSubjects() {
+      const list = [
+        // 教養科目
+        { id: 'sub_sute', name: '数的推理', category: '教養', unit: '問', target: 150 },
+        { id: 'sub_handan', name: '判断推理', category: '教養', unit: '問', target: 150 },
+        { id: 'sub_shiryo', name: '資料解釈', category: '教養', unit: '問', target: 60 },
+        { id: 'sub_bunsho', name: '文章理解', category: '教養', unit: '問', target: 120 },
+        { id: 'sub_shakai', name: '社会科学', category: '教養', unit: 'ページ', target: 150 },
+        { id: 'sub_jinbun', name: '人文科学', category: '教養', unit: 'ページ', target: 120 },
+        { id: 'sub_shizen', name: '自然科学', category: '教養', unit: 'ページ', target: 100 },
+        { id: 'sub_jiji', name: '時事・教養論文', category: '教養', unit: 'ページ', target: 100 },
+        // 専門科目
+        { id: 'sub_kenpo', name: '憲法', category: '専門', unit: 'ページ', target: 200 },
+        { id: 'sub_minpo', name: '民法', category: '専門', unit: 'ページ', target: 300 },
+        { id: 'sub_gyoseiho', name: '行政法', category: '専門', unit: 'ページ', target: 220 },
+        { id: 'sub_micro', name: 'ミクロ経済学', category: '専門', unit: 'ページ', target: 200 },
+        { id: 'sub_macro', name: 'マクロ経済学', category: '専門', unit: 'ページ', target: 200 },
+        { id: 'sub_zaisei', name: '財政学', category: '専門', unit: 'ページ', target: 120 },
+        { id: 'sub_seiji', name: '政治学', category: '専門', unit: 'ページ', target: 150 },
+        { id: 'sub_gyoseigaku', name: '行政学', category: '専門', unit: 'ページ', target: 120 },
+        { id: 'sub_keiei', name: '経営学', category: '専門', unit: 'ページ', target: 100 },
+        { id: 'sub_shakaigaku', name: '社会学', category: '専門', unit: 'ページ', target: 100 },
+        { id: 'sub_kaikei', name: '会計学', category: '専門', unit: '動画・講義', target: 30 },
+        { id: 'sub_kokusai', name: '国際関係', category: '専門', unit: 'ページ', target: 100 }
+      ];
+      return list.map(s => ({
+        ...s,
+        done: 0,
+        memo: '',
+        chapters: [] // { id, title, target, done }
+      }));
+    }
+
+    /**
+     * 初期状態オブジェクト生成（進捗・ログ・カスタム予定はすべて0／空）
+     */
+    function createInitialState() {
+      const exams = {};
+      EXAM_MASTER.forEach(ex => {
+        exams[ex.id] = {
+          isTarget: ex.defaultTarget,
+          firstExamDate: ex.defaultFirstDate,
+          secondExamDate: ex.defaultSecondDate,
+          deadlineDate: ex.defaultDeadline,
+          memo: ex.defaultMemo
+        };
+      });
+      return {
+        version: 2,
+        exams: exams,
+        subjects: createDefaultSubjects(),
+        myEvents: [], // { id, date, title, category, done }
+        dailyLogs: {}, // { 'YYYY-MM-DD': number }
+        fallbackGoalDate: '2027-05-02',
+        lastBackupAt: null, // ISO string or null
+        hasEditedSchedule: false
+      };
+    }
+
+    /* =========================================================================
+       2. アプリケーション状態・ローカルストレージ永続化
+       ========================================================================= */
+    let appState = loadState();
+    let uiState = {
+      activeTab: 'home',
+      studyFilter: 'all', // 'all' | '教養' | '専門' | 'target'
+      studySearch: '',
+      expandedSubjectIds: new Set(),
+      guideSubTab: 'overview', // 'overview' | 'matrix'
+      selectedGuideExamId: 'national_ippan',
+      matrixTargetOnly: false,
+      matrixCategory: 'all', // 'all' | '教養' | '専門'
+      scheduleFilter: 'all', // 'all' | 'target'
+      dismissedBackupBanner: false
+    };
+
+    function loadState() {
+      try {
+        const raw = localStorage.getItem(STORAGE_KEY);
+        if (!raw) return createInitialState();
+        const parsed = JSON.parse(raw);
+        const base = createInitialState();
+        // マージして欠損キーを安全に補完
+        const mergedExams = { ...base.exams };
+        if (parsed.exams && typeof parsed.exams === 'object') {
+          Object.keys(mergedExams).forEach(id => {
+            if (parsed.exams[id]) {
+              mergedExams[id] = { ...mergedExams[id], ...parsed.exams[id] };
+            }
+          });
+        }
+        return {
+          version: 2,
+          exams: mergedExams,
+          subjects: Array.isArray(parsed.subjects) ? parsed.subjects.map(s => ({
+            id: s.id || uid('sub'),
+            name: String(s.name || '名称未設定'),
+            category: s.category === '教養' ? '教養' : '専門',
+            unit: s.unit || 'ページ',
+            target: Math.max(1, Number(s.target) || 100),
+            done: Math.max(0, Number(s.done) || 0),
+            memo: String(s.memo || ''),
+            chapters: Array.isArray(s.chapters) ? s.chapters.map(c => ({
+              id: c.id || uid('ch'),
+              title: String(c.title || '章'),
+              target: Math.max(1, Number(c.target) || 10),
+              done: Math.max(0, Number(c.done) || 0)
+            })) : []
+          })) : base.subjects,
+          myEvents: Array.isArray(parsed.myEvents) ? parsed.myEvents : [],
+          dailyLogs: (parsed.dailyLogs && typeof parsed.dailyLogs === 'object') ? parsed.dailyLogs : {},
+          fallbackGoalDate: parsed.fallbackGoalDate || '2027-05-02',
+          lastBackupAt: parsed.lastBackupAt || null,
+          hasEditedSchedule: Boolean(parsed.hasEditedSchedule)
+        };
+      } catch (e) {
+        console.error('Failed to load state:', e);
+        return createInitialState();
+      }
+    }
+
+    function saveState() {
+      try {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(appState));
+      } catch (e) {
+        console.error('Failed to save state:', e);
+        showToast('端末の保存容量が不足している可能性があります', 'error');
+      }
+    }
+
+    /* =========================================================================
+       3. ユーティリティ関数（日付・ID・エスケープ・進捗計算）
+       ========================================================================= */
+    function uid(prefix = 'id') {
+      return `${prefix}_${Date.now().toString(36)}_${Math.random().toString(36).slice(2, 7)}`;
+    }
+
+    function escapeHtml(str) {
+      return String(str ?? '')
+        .replace(/&/g, '&amp;')
+        .replace(/</g, '&lt;')
+        .replace(/>/g, '&gt;')
+        .replace(/"/g, '&quot;')
+        .replace(/'/g, '&#39;');
+    }
+
+    function getTodayStr() {
+      const d = new Date();
+      const y = d.getFullYear();
+      const m = String(d.getMonth() + 1).padStart(2, '0');
+      const day = String(d.getDate()).padStart(2, '0');
+      return `${y}-${m}-${day}`;
+    }
+
+    function parseLocalDate(dateStr) {
+      if (!dateStr || !/^\d{4}-\d{2}-\d{2}$/.test(dateStr)) return null;
+      const [y, m, d] = dateStr.split('-').map(Number);
+      return new Date(y, m - 1, d);
+    }
+
+    function getDaysUntil(dateStr) {
+      const target = parseLocalDate(dateStr);
+      if (!target) return null;
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      const diffMs = target.getTime() - today.getTime();
+      return Math.ceil(diffMs / (1000 * 60 * 60 * 24));
+    }
+
+    function formatDateJP(dateStr) {
+      const d = parseLocalDate(dateStr);
+      if (!d) return '日程未定';
+      const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+      return `${d.getFullYear()}年${d.getMonth() + 1}月${d.getDate()}日(${weekdays[d.getDay()]})`;
+    }
+
+    function formatDateShort(dateStr) {
+      const d = parseLocalDate(dateStr);
+      if (!d) return '未定';
+      const weekdays = ['日', '月', '火', '水', '木', '金', '土'];
+      return `${d.getFullYear()}/${d.getMonth() + 1}/${d.getDate()}(${weekdays[d.getDay()]})`;
+    }
+
+    /**
+     * 科目の実効達成数・目標数を算出（章が存在する場合は各章の合計を自動合算）
+     */
+    function getSubjectStats(subject) {
+      if (subject.chapters && subject.chapters.length > 0) {
+        const target = subject.chapters.reduce((sum, ch) => sum + Math.max(1, Number(ch.target) || 1), 0);
+        const done = subject.chapters.reduce((sum, ch) => sum + Math.max(0, Math.min(Number(ch.done) || 0, Number(ch.target) || 1)), 0);
+        const pct = target > 0 ? Math.min(100, Math.round((done / target) * 100)) : 0;
+        return { done, target, pct, hasChapters: true };
+      }
+      const target = Math.max(1, Number(subject.target) || 1);
+      const done = Math.max(0, Math.min(Number(subject.done) || 0, target));
+      const pct = Math.min(100, Math.round((done / target) * 100));
+      return { done, target, pct, hasChapters: false };
+    }
+
+    /**
+     * 日別学習ログに差分を加算（今日・1週間・1ヶ月達成数の計算用）
+     */
+    function recordDailyDelta(delta) {
+      if (!delta) return;
+      const key = getTodayStr();
+      const prev = Number(appState.dailyLogs[key]) || 0;
+      const next = Math.max(0, prev + delta);
+      if (next === 0) {
+        delete appState.dailyLogs[key];
+      } else {
+        appState.dailyLogs[key] = next;
+      }
+    }
+
+    /**
+     * 直近N日間の学習達成ログ合計を取得
+     */
+    function getLoggedSumInDays(days) {
+      const now = new Date();
+      const today = new Date(now.getFullYear(), now.getMonth(), now.getDate());
+      let sum = 0;
+      Object.entries(appState.dailyLogs || {}).forEach(([dateKey, val]) => {
+        const d = parseLocalDate(dateKey);
+        if (!d) return;
+        const diffDays = Math.floor((today.getTime() - d.getTime()) / (1000 * 60 * 60 * 24));
+        if (diffDays >= 0 && diffDays < days) {
+          sum += Number(val) || 0;
+        }
+      });
+      return sum;
+    }
+
+    /**
+     * 志望区分のうち最も近い確定1次試験を取得（なければ目標基準日を使用）
+     */
+    function getNearestConfirmedTargetExam() {
+      const candidates = EXAM_MASTER
+        .map(m => ({ master: m, user: appState.exams[m.id] }))
+        .filter(item => item.user && item.user.isTarget && item.user.firstExamDate)
+        .map(item => ({ ...item, daysLeft: getDaysUntil(item.user.firstExamDate) }))
+        .filter(item => item.daysLeft !== null && item.daysLeft >= 0)
+        .sort((a, b) => a.daysLeft - b.daysLeft);
+      return candidates[0] || null;
+    }
+
+    /**
+     * 確定済み志望試験同士の1次試験日重複チェック
+     */
+    function getDuplicateDateAlerts() {
+      const dateMap = {};
+      EXAM_MASTER.forEach(m => {
+        const u = appState.exams[m.id];
+        if (!u || !u.isTarget || !u.firstExamDate) return; // 未定(TBD)は対象外
+        if (!dateMap[u.firstExamDate]) dateMap[u.firstExamDate] = [];
+        dateMap[u.firstExamDate].push(m.shortName);
+      });
+      return Object.entries(dateMap)
+        .filter(([, names]) => names.length >= 2)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([date, names]) => ({ date, names }));
+    }
+
+    /**
+     * 全体進捗＆期間別ノルマ自動換算（今日・1週間・1ヶ月・試験日まで）
+     */
+    function computeOverallProgressAndQuotas() {
+      let totalTarget = 0;
+      let totalDone = 0;
+      appState.subjects.forEach(s => {
+        const st = getSubjectStats(s);
+        totalTarget += st.target;
+        totalDone += st.done;
+      });
+      const remaining = Math.max(0, totalTarget - totalDone);
+      const totalPct = totalTarget > 0 ? Math.min(100, Math.round((totalDone / totalTarget) * 100)) : 0;
+
+      const nearest = getNearestConfirmedTargetExam();
+      const goalDateStr = nearest ? nearest.user.firstExamDate : appState.fallbackGoalDate;
+      const goalLabel = nearest ? `${nearest.master.shortName}（1次）` : '設定目標日';
+      const rawDaysLeft = getDaysUntil(goalDateStr);
+      const daysLeft = rawDaysLeft !== null ? Math.max(1, rawDaysLeft) : 180;
+
+      // 今日の達成数・直近7日・直近30日
+      const todayDone = Number(appState.dailyLogs[getTodayStr()]) || 0;
+      const weekDone = getLoggedSumInDays(7);
+      const monthDone = getLoggedSumInDays(30);
+
+      // ノルマ計算（今日の達成分も母数に含めることで、今日進めたときにバーが着実に伸びる設計）
+      const remStartOfToday = remaining + todayDone;
+      const dailyQuota = remStartOfToday > 0 ? Math.ceil(remStartOfToday / daysLeft) : 0;
+
+      const weeksLeft = Math.max(1, daysLeft / 7);
+      const remStartOfWeek = remaining + weekDone;
+      const weeklyQuota = remStartOfWeek > 0 ? Math.ceil(remStartOfWeek / weeksLeft) : 0;
+
+      const monthsLeft = Math.max(1, daysLeft / 30);
+      const remStartOfMonth = remaining + monthDone;
+      const monthlyQuota = remStartOfMonth > 0 ? Math.ceil(remStartOfMonth / monthsLeft) : 0;
+
+      return {
+        totalTarget,
+        totalDone,
+        remaining,
+        totalPct,
+        goalDateStr,
+        goalLabel,
+        rawDaysLeft,
+        daysLeft,
+        today: {
+          done: todayDone,
+          quota: dailyQuota,
+          pct: dailyQuota > 0 ? Math.min(100, Math.round((todayDone / dailyQuota) * 100)) : (totalDone > 0 ? 100 : 0)
+        },
+        week: {
+          done: weekDone,
+          quota: weeklyQuota,
+          pct: weeklyQuota > 0 ? Math.min(100, Math.round((weekDone / weeklyQuota) * 100)) : (totalDone > 0 ? 100 : 0)
+        },
+        month: {
+          done: monthDone,
+          quota: monthlyQuota,
+          pct: monthlyQuota > 0 ? Math.min(100, Math.round((monthDone / monthlyQuota) * 100)) : (totalDone > 0 ? 100 : 0)
+        }
+      };
+    }
+
+    /**
+     * 志望試験の対象科目名セットを取得
+     */
+    function getTargetExamSubjectNameSet() {
+      const set = new Set();
+      const targetIds = EXAM_MASTER.filter(m => appState.exams[m.id]?.isTarget).map(m => m.id);
+      SUBJECT_MATRIX_DEF.forEach(row => {
+        const needed = targetIds.some(id => row.map[id] && row.map[id] !== 'none');
+        if (needed) set.add(row.name);
+      });
+      return set;
+    }
+
+    /**
+     * バックアップリマインダー表示判定
+     */
+    function shouldShowBackupReminder() {
+      if (uiState.dismissedBackupBanner) return false;
+      const sevenDaysMs = 7 * 24 * 60 * 60 * 1000;
+      if (appState.lastBackupAt) {
+        const elapsed = Date.now() - new Date(appState.lastBackupAt).getTime();
+        return elapsed >= sevenDaysMs;
+      }
+      // 未バックアップの場合：何らかの進捗・予定・日程編集があれば通知（初期状態0のときは出さない）
+      const hasProgress = appState.subjects.some(s => getSubjectStats(s).done > 0 || (s.chapters && s.chapters.length > 0));
+      const hasEvents = appState.myEvents.length > 0;
+      return hasProgress || hasEvents || appState.hasEditedSchedule;
+    }
+
+    /* =========================================================================
+       4. UIヘルパー（トースト・モーダル・アイコン）
+       ========================================================================= */
+    let toastTimer = null;
+    function showToast(message, type = 'success') {
+      const box = document.getElementById('toastBox');
+      const msg = document.getElementById('toastMsg');
+      const icon = document.getElementById('toastIcon');
+      msg.textContent = message;
+      if (type === 'error') {
+        box.className = 'pointer-events-auto max-w-sm w-full bg-rose-700 text-white text-xs font-medium px-4 py-3 rounded-2xl shadow-lg flex items-center gap-2.5 animate-fade-up';
+        icon.innerHTML = `<svg class="w-4 h-4 text-rose-200" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01M5.07 19h13.86c1.54 0 2.5-1.67 1.73-3L13.73 4c-.77-1.33-2.69-1.33-3.46 0L3.34 16c-.77 1.33.19 3 1.73 3z"/></svg>`;
+      } else {
+        box.className = 'pointer-events-auto max-w-sm w-full bg-navy-900/95 text-white text-xs font-medium px-4 py-3 rounded-2xl shadow-lg border border-white/10 flex items-center gap-2.5 animate-fade-up';
+        icon.innerHTML = `<svg class="w-4 h-4 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>`;
+      }
+      box.classList.remove('hidden');
+      clearTimeout(toastTimer);
+      toastTimer = setTimeout(() => {
+        box.classList.add('hidden');
+      }, 2600);
+    }
+
+    function openModal({ title, bodyHtml, footerHtml, onOpen }) {
+      const backdrop = document.getElementById('modalBackdrop');
+      document.getElementById('modalTitle').textContent = title;
+      document.getElementById('modalBody').innerHTML = bodyHtml;
+      document.getElementById('modalFooter').innerHTML = footerHtml || '';
+      backdrop.classList.remove('hidden');
+      document.body.classList.add('overflow-hidden');
+      if (typeof onOpen === 'function') onOpen();
+    }
+
+    function closeModal() {
+      document.getElementById('modalBackdrop').classList.add('hidden');
+      document.body.classList.remove('overflow-hidden');
+    }
+
+    function openConfirmModal({ title, message, confirmLabel = '実行する', danger = false, onConfirm }) {
+      openModal({
+        title,
+        bodyHtml: `<p class="text-sm text-slate-600 leading-relaxed whitespace-pre-line">${escapeHtml(message)}</p>`,
+        footerHtml: `
+          <button type="button" id="confirmCancelBtn" class="px-4 py-2.5 rounded-xl bg-slate-200/80 hover:bg-slate-200 text-slate-700 text-sm font-semibold transition-colors">キャンセル</button>
+          <button type="button" id="confirmOkBtn" class="px-4 py-2.5 rounded-xl ${danger ? 'bg-rose-600 hover:bg-rose-700' : 'bg-blue-600 hover:bg-blue-700'} text-white text-sm font-semibold transition-colors">${escapeHtml(confirmLabel)}</button>
+        `,
+        onOpen: () => {
+          document.getElementById('confirmCancelBtn').addEventListener('click', closeModal);
+          document.getElementById('confirmOkBtn').addEventListener('click', () => {
+            closeModal();
+            onConfirm();
+          });
+        }
+      });
+    }
+
+    document.getElementById('modalCloseBtn').addEventListener('click', closeModal);
+    document.getElementById('modalBackdrop').addEventListener('click', (e) => {
+      if (e.target === e.currentTarget) closeModal();
+    });
+
+    const NAV_ICONS = {
+      home: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M3 12l2-2m0 0l7-7 7 7M5 10v10a1 1 0 001 1h3m10-11l2 2m-2-2v10a1 1 0 01-1 1h-3m-6 0a1 1 0 001-1v-4a1 1 0 011-1h2a1 1 0 011 1v4a1 1 0 001 1m-6 0h6"/></svg>`,
+      study: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"/></svg>`,
+      schedule: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>`,
+      guide: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M9 17V7m0 10a2 2 0 01-2 2H5a2 2 0 01-2-2V7a2 2 0 012-2h2a2 2 0 012 2m0 10a2 2 0 002 2h2a2 2 0 002-2M9 7a2 2 0 012-2h2a2 2 0 012 2m0 10V7m0 10a2 2 0 002 2h2a2 2 0 002-2V7a2 2 0 00-2-2h-2a2 2 0 00-2 2"/></svg>`,
+      settings: `<svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"/><path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"/></svg>`
+    };
+
+    /* =========================================================================
+       5. バックアップ保存＆復元ロジック
+       ========================================================================= */
+    function exportBackupJson() {
+      try {
+        appState.lastBackupAt = new Date().toISOString();
+        uiState.dismissedBackupBanner = false;
+        saveState();
+        const dataStr = JSON.stringify(appState, null, 2);
+        const blob = new Blob([dataStr], { type: 'application/json' });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        const stamp = getTodayStr().replace(/-/g, '');
+        a.href = url;
+        a.download = `komuin_navi_backup_${stamp}.json`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        setTimeout(() => URL.revokeObjectURL(url), 1000);
+        showToast('バックアップファイルを保存しました');
+        renderApp();
+      } catch (e) {
+        console.error(e);
+        showToast('バックアップ保存に失敗しました', 'error');
+      }
+    }
+
+    document.getElementById('importFileInput').addEventListener('change', (e) => {
+      const file = e.target.files && e.target.files[0];
+      e.target.value = '';
+      if (!file) return;
+      const reader = new FileReader();
+      reader.onload = () => {
+        try {
+          const parsed = JSON.parse(String(reader.result));
+          if (!parsed || typeof parsed !== 'object' || !Array.isArray(parsed.subjects) || !parsed.exams) {
+            showToast('対応していないバックアップファイル形式です', 'error');
+            return;
+          }
+          openConfirmModal({
+            title: 'バックアップを復元しますか？',
+            message: `選択したファイル「${file.name}」の内容で現在のデータを上書き復元します。\nよろしいですか？`,
+            confirmLabel: '復元する',
+            onConfirm: () => {
+              localStorage.setItem(STORAGE_KEY, JSON.stringify(parsed));
+              appState = loadState();
+              saveState();
+              showToast('データを正常に復元しました');
+              renderApp();
+            }
+          });
+        } catch (err) {
+          showToast('JSONファイルの読み込みに失敗しました', 'error');
+        }
+      };
+      reader.readAsText(file);
+    });
+
+    /* =========================================================================
+       6. タブ別レンダリング
+       ========================================================================= */
+    function renderApp() {
+      updateNavAndHeader();
+      const main = document.getElementById('appMain');
+      switch (uiState.activeTab) {
+        case 'home':
+          main.innerHTML = renderHomeTab();
+          bindHomeEvents();
+          break;
+        case 'study':
+          main.innerHTML = renderStudyTab();
+          bindStudyEvents();
+          break;
+        case 'schedule':
+          main.innerHTML = renderScheduleTab();
+          bindScheduleEvents();
+          break;
+        case 'guide':
+          main.innerHTML = renderGuideTab();
+          bindGuideEvents();
+          break;
+        case 'settings':
+          main.innerHTML = renderSettingsTab();
+          bindSettingsEvents();
+          break;
+      }
+    }
+
+    function updateNavAndHeader() {
+      // 下部ナビ状態更新
+      document.querySelectorAll('#bottomNav .nav-btn').forEach(btn => {
+        const tab = btn.dataset.tab;
+        btn.querySelector('.nav-icon').innerHTML = NAV_ICONS[tab];
+        if (tab === uiState.activeTab) {
+          btn.classList.add('text-blue-600', 'bg-blue-50/70');
+          btn.classList.remove('text-slate-400', 'hover:text-slate-600');
+        } else {
+          btn.classList.remove('text-blue-600', 'bg-blue-50/70');
+          btn.classList.add('text-slate-400', 'hover:text-slate-600');
+        }
+      });
+
+      const titles = {
+        home: ['公務員試験 学習＆日程ナビ', '2027年度（令和9年度）対応ダッシュボード'],
+        study: ['学習・章別進捗管理', '科目・章ごとの記録と期間別ペース自動換算'],
+        schedule: ['試験日程・マイ予定', '確定日・未定(TBD)の手動編集＆重複チェック'],
+        guide: ['試験概要・科目比較', '受験案内ベースの概要＆必要科目数マトリクス'],
+        settings: ['志望区分・データ設定', '受験区分の選択＆JSONバックアップ保護']
+      };
+      const [t, sub] = titles[uiState.activeTab] || titles.home;
+      document.getElementById('headerTitle').textContent = t;
+      document.getElementById('headerSubtitle').textContent = sub;
+
+      const actionArea = document.getElementById('headerActionArea');
+      if (uiState.activeTab === 'study') {
+        actionArea.innerHTML = `<button type="button" id="headerAddSubjectBtn" class="px-3 py-1.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-xs font-bold shadow-sm transition-colors flex items-center gap-1"><span>＋科目</span></button>`;
+        document.getElementById('headerAddSubjectBtn').addEventListener('click', () => openSubjectEditModal(null));
+      } else if (uiState.activeTab === 'schedule') {
+        actionArea.innerHTML = `<button type="button" id="headerAddEventBtn" class="px-3 py-1.5 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-xs font-bold shadow-sm transition-colors flex items-center gap-1"><span>＋予定</span></button>`;
+        document.getElementById('headerAddEventBtn').addEventListener('click', () => openEventModal());
+      } else {
+        actionArea.innerHTML = `<span class="text-[10px] font-semibold px-2.5 py-1 rounded-full bg-white/10 text-blue-100 border border-white/15">自動保存ON</span>`;
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       6-1. ホームタブ
+       ------------------------------------------------------------------------- */
+    function renderPeriodQuotaCard(q, compact = false) {
+      const items = [
+        { label: '今日', done: q.today.done, quota: q.today.quota, pct: q.today.pct, bar: 'bg-blue-600', bg: 'bg-blue-50/70', text: 'text-blue-700' },
+        { label: '1週間', done: q.week.done, quota: q.week.quota, pct: q.week.pct, bar: 'bg-indigo-600', bg: 'bg-indigo-50/70', text: 'text-indigo-700' },
+        { label: '1ヶ月', done: q.month.done, quota: q.month.quota, pct: q.month.pct, bar: 'bg-teal-600', bg: 'bg-teal-50/70', text: 'text-teal-700' },
+        { label: '全期間', done: q.totalDone, quota: q.totalTarget, pct: q.totalPct, bar: 'bg-navy-800', bg: 'bg-slate-100', text: 'text-navy-900' }
+      ];
+      return `
+        <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70">
+          <div class="flex items-center justify-between gap-2 mb-3">
+            <div>
+              <h2 class="text-sm font-bold text-navy-900">期間別ノルマ自動換算</h2>
+              <p class="text-[11px] text-slate-500 mt-0.5">基準：${escapeHtml(q.goalLabel)}（あと${q.daysLeft}日）</p>
+            </div>
+            <div class="text-right">
+              <span class="text-lg font-extrabold text-blue-600">${q.totalPct}%</span>
+              <p class="text-[10px] text-slate-400">残 ${q.remaining.toLocaleString()} / 計 ${q.totalTarget.toLocaleString()}</p>
+            </div>
+          </div>
+          <div class="grid grid-cols-2 ${compact ? 'sm:grid-cols-4' : 'sm:grid-cols-4'} gap-2.5">
+            ${items.map(it => `
+              <div class="${it.bg} rounded-2xl p-3 border border-slate-200/50">
+                <div class="flex items-center justify-between text-[11px] font-bold ${it.text} mb-1">
+                  <span>${it.label}</span>
+                  <span>${it.pct}%</span>
+                </div>
+                <div class="text-sm font-extrabold text-slate-800 tracking-tight">
+                  ${it.done.toLocaleString()} <span class="text-[11px] font-medium text-slate-400">/ ${it.quota.toLocaleString()}</span>
+                </div>
+                <div class="w-full h-1.5 bg-white rounded-full overflow-hidden mt-2">
+                  <div class="${it.bar} h-full rounded-full transition-all duration-300" style="width:${it.pct}%"></div>
+                </div>
+              </div>
+            `).join('')}
+          </div>
+        </section>
+      `;
+    }
+
+    function renderHomeTab() {
+      const q = computeOverallProgressAndQuotas();
+      const nearest = getNearestConfirmedTargetExam();
+      const duplicates = getDuplicateDateAlerts();
+      const showReminder = shouldShowBackupReminder();
+
+      // 志望区分一覧（確定日順→未定）
+      const targetExams = EXAM_MASTER
+        .map(m => ({ master: m, user: appState.exams[m.id] }))
+        .filter(item => item.user && item.user.isTarget)
+        .sort((a, b) => {
+          if (a.user.firstExamDate && !b.user.firstExamDate) return -1;
+          if (!a.user.firstExamDate && b.user.firstExamDate) return 1;
+          return (a.user.firstExamDate || '').localeCompare(b.user.firstExamDate || '');
+        });
+
+      const upcomingEvents = appState.myEvents
+        .filter(ev => !ev.done)
+        .sort((a, b) => (a.date || '9999-99-99').localeCompare(b.date || '9999-99-99'))
+        .slice(0, 3);
+
+      const backupReminderHtml = showReminder ? `
+        <div class="bg-amber-50 border border-amber-200 rounded-2xl p-3.5 flex items-start gap-3 shadow-sm animate-fade-up">
+          <div class="w-8 h-8 rounded-xl bg-amber-100 text-amber-700 flex items-center justify-center shrink-0 mt-0.5">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+          </div>
+          <div class="flex-1 min-w-0">
+            <p class="text-xs font-bold text-amber-900">データ保護のためバックアップをおすすめします</p>
+            <p class="text-[11px] text-amber-800/85 mt-0.5 leading-relaxed">
+              ${appState.lastBackupAt ? '前回の保存から7日以上経過しています。' : '学習記録がつきました。Safariのデータ消去対策にファイル保存できます。'}
+            </p>
+            <div class="flex items-center gap-2 mt-2.5">
+              <button type="button" id="bannerQuickBackupBtn" class="px-3 py-1.5 rounded-xl bg-amber-600 hover:bg-amber-700 text-white text-[11px] font-bold transition-colors">今すぐ保存</button>
+              <button type="button" id="bannerDismissBtn" class="px-2.5 py-1.5 rounded-xl text-amber-800/70 hover:bg-amber-100 text-[11px] font-semibold transition-colors">あとで</button>
+            </div>
+          </div>
+        </div>
+      ` : '';
+
+      const duplicateHtml = duplicates.length > 0 ? `
+        <div class="bg-rose-50 border border-rose-200 rounded-2xl p-3.5 flex items-start gap-2.5">
+          <span class="text-rose-600 shrink-0 mt-0.5">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+          </span>
+          <div class="text-xs text-rose-900">
+            <p class="font-bold">志望試験の1次日程が重複しています</p>
+            ${duplicates.map(d => `<p class="mt-0.5 text-[11px]">・${formatDateJP(d.date)}：${d.names.join(' ／ ')}</p>`).join('')}
+          </div>
+        </div>
+      ` : '';
+
+      const countdownHero = nearest ? `
+        <section class="bg-gradient-to-br from-navy-900 via-navy-800 to-blue-800 text-white rounded-3xl p-5 shadow-md relative overflow-hidden">
+          <div class="absolute -right-8 -top-8 w-36 h-36 bg-blue-400/15 rounded-full blur-2xl pointer-events-none"></div>
+          <div class="flex items-start justify-between gap-2 relative">
+            <div>
+              <span class="inline-flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider px-2.5 py-0.5 rounded-full bg-blue-500/30 border border-blue-300/30 text-blue-100">直近の確定1次試験</span>
+              <h2 class="text-lg font-extrabold mt-2 leading-tight">${escapeHtml(nearest.master.shortName)}</h2>
+              <p class="text-xs text-blue-200 mt-0.5">${formatDateJP(nearest.user.firstExamDate)}</p>
+            </div>
+            <div class="text-right bg-white/10 backdrop-blur-sm rounded-2xl px-3.5 py-2.5 border border-white/15 shrink-0">
+              <p class="text-[10px] text-blue-200 font-semibold">あと</p>
+              <p class="text-3xl font-black leading-none tracking-tight">${nearest.daysLeft}<span class="text-xs font-bold ml-0.5">日</span></p>
+            </div>
+          </div>
+          <div class="mt-4 pt-3.5 border-t border-white/15 flex items-center justify-between text-[11px] text-blue-100/90">
+            <span>全体達成率：<strong>${q.totalPct}%</strong>（${q.totalDone}/${q.totalTarget}）</span>
+            <button type="button" data-goto="study" class="goto-tab-btn font-bold text-white underline underline-offset-2 hover:text-blue-200">学習を記録 →</button>
+          </div>
+        </section>
+      ` : `
+        <section class="bg-gradient-to-br from-navy-900 to-navy-700 text-white rounded-3xl p-5 shadow-md">
+          <span class="inline-flex items-center text-[10px] font-bold px-2.5 py-0.5 rounded-full bg-white/15 text-blue-100">確定済みの志望試験なし</span>
+          <h2 class="text-base font-bold mt-2">志望試験の日程を確認・設定しましょう</h2>
+          <p class="text-xs text-blue-200 mt-1 leading-relaxed">日程未定（TBD）の自治体は受験案内が公開され次第、日程タブから日付を入力するとカウントダウンが始まります。</p>
+          <div class="mt-3.5 flex gap-2">
+            <button type="button" data-goto="schedule" class="goto-tab-btn px-3.5 py-2 rounded-xl bg-blue-500 hover:bg-blue-400 text-white text-xs font-bold">日程を確認・編集</button>
+            <button type="button" data-goto="settings" class="goto-tab-btn px-3.5 py-2 rounded-xl bg-white/15 hover:bg-white/25 text-white text-xs font-bold">志望区分を選ぶ</button>
+          </div>
+        </section>
+      `;
+
+      // カテゴリ別進捗サマリー（教養・専門）
+      const catSummary = ['教養', '専門'].map(cat => {
+        const subs = appState.subjects.filter(s => s.category === cat);
+        let done = 0, target = 0;
+        subs.forEach(s => {
+          const st = getSubjectStats(s);
+          done += st.done;
+          target += st.target;
+        });
+        const pct = target > 0 ? Math.min(100, Math.round((done / target) * 100)) : 0;
+        return { cat, count: subs.length, done, target, pct };
+      });
+
+      return `
+        <div class="space-y-4">
+          ${backupReminderHtml}
+          ${duplicateHtml}
+          ${countdownHero}
+          ${renderPeriodQuotaCard(q)}
+
+          <!-- 教養・専門カテゴリ別サマリー -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-sm font-bold text-navy-900">分野別進捗バランス</h2>
+              <button type="button" data-goto="study" class="goto-tab-btn text-xs font-semibold text-blue-600 hover:underline">科目一覧へ</button>
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              ${catSummary.map(c => `
+                <div class="rounded-2xl border border-slate-100 bg-slate-50/70 p-3">
+                  <div class="flex items-center justify-between">
+                    <span class="text-xs font-bold text-slate-700">${c.cat}科目</span>
+                    <span class="text-xs font-extrabold ${c.cat === '教養' ? 'text-blue-600' : 'text-indigo-600'}">${c.pct}%</span>
+                  </div>
+                  <p class="text-[11px] text-slate-500 mt-1">${c.done.toLocaleString()} / ${c.target.toLocaleString()}（${c.count}科目）</p>
+                  <div class="w-full h-1.5 bg-slate-200 rounded-full overflow-hidden mt-2">
+                    <div class="${c.cat === '教養' ? 'bg-blue-600' : 'bg-indigo-600'} h-full rounded-full transition-all" style="width:${c.pct}%"></div>
+                  </div>
+                </div>
+              `).join('')}
+            </div>
+          </section>
+
+          <!-- 志望試験ステータス一覧 -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70">
+            <div class="flex items-center justify-between mb-3">
+              <h2 class="text-sm font-bold text-navy-900">志望試験の1次日程（${targetExams.length}区分）</h2>
+              <button type="button" data-goto="schedule" class="goto-tab-btn text-xs font-semibold text-blue-600 hover:underline">日程編集へ</button>
+            </div>
+            ${targetExams.length === 0 ? `
+              <p class="text-xs text-slate-400 text-center py-4">志望区分が選択されていません。「区分・設定」から選べます。</p>
+            ` : `
+              <div class="divide-y divide-slate-100">
+                ${targetExams.map(({ master, user }) => {
+                  const days = getDaysUntil(user.firstExamDate);
+                  const badge = user.firstExamDate
+                    ? (days >= 0
+                      ? `<span class="px-2.5 py-1 rounded-full bg-blue-50 text-blue-700 text-[11px] font-bold">あと${days}日</span>`
+                      : `<span class="px-2.5 py-1 rounded-full bg-slate-100 text-slate-500 text-[11px] font-bold">終了</span>`)
+                    : `<span class="px-2.5 py-1 rounded-full bg-amber-50 text-amber-700 border border-amber-200/80 text-[11px] font-bold">日程未定</span>`;
+                  return `
+                    <div class="py-2.5 flex items-center justify-between gap-2">
+                      <div class="min-w-0">
+                        <p class="text-xs font-bold text-slate-800 truncate">${escapeHtml(master.shortName)}</p>
+                        <p class="text-[11px] text-slate-500 mt-0.5">${user.firstExamDate ? formatDateShort(user.firstExamDate) : '受験案内公表後に手動設定可能'}</p>
+                      </div>
+                      <div class="shrink-0 flex items-center gap-1.5">
+                        ${badge}
+                        <button type="button" data-edit-exam="${master.id}" class="home-edit-exam-btn p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50" aria-label="編集">
+                          <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                        </button>
+                      </div>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            `}
+          </section>
+
+          <!-- 直近のマイ予定 -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70">
+            <div class="flex items-center justify-between mb-2.5">
+              <h2 class="text-sm font-bold text-navy-900">直近のマイ予定</h2>
+              <button type="button" data-goto="schedule" class="goto-tab-btn text-xs font-semibold text-blue-600 hover:underline">予定管理へ</button>
+            </div>
+            ${upcomingEvents.length === 0 ? `
+              <div class="text-center py-4 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                <p class="text-xs text-slate-400">登録されている予定はまだありません（0件）</p>
+                <button type="button" id="homeQuickAddEventBtn" class="mt-2 px-3 py-1.5 rounded-xl bg-white border border-slate-200 text-xs font-semibold text-blue-600 hover:bg-blue-50">＋ 模試・説明会などを追加</button>
+              </div>
+            ` : `
+              <div class="space-y-2">
+                ${upcomingEvents.map(ev => `
+                  <div class="flex items-center justify-between gap-2 bg-slate-50 rounded-2xl px-3 py-2.5">
+                    <div class="min-w-0">
+                      <span class="inline-block text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-100 text-blue-700 mr-1">${escapeHtml(ev.category)}</span>
+                      <span class="text-xs font-semibold text-slate-800">${escapeHtml(ev.title)}</span>
+                    </div>
+                    <span class="text-[11px] font-medium text-slate-500 shrink-0">${ev.date ? formatDateShort(ev.date) : '日付なし'}</span>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </section>
+        </div>
+      `;
+    }
+
+    function bindHomeEvents() {
+      document.querySelectorAll('.goto-tab-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          uiState.activeTab = btn.dataset.goto;
+          renderApp();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+      });
+      document.querySelectorAll('.home-edit-exam-btn').forEach(btn => {
+        btn.addEventListener('click', () => openExamEditModal(btn.dataset.editExam));
+      });
+      const addEvBtn = document.getElementById('homeQuickAddEventBtn');
+      if (addEvBtn) addEvBtn.addEventListener('click', () => openEventModal());
+
+      const quickBackupBtn = document.getElementById('bannerQuickBackupBtn');
+      if (quickBackupBtn) quickBackupBtn.addEventListener('click', exportBackupJson);
+
+      const dismissBtn = document.getElementById('bannerDismissBtn');
+      if (dismissBtn) {
+        dismissBtn.addEventListener('click', () => {
+          uiState.dismissedBackupBanner = true;
+          renderApp();
+        });
+      }
+    }
+
+    /* -------------------------------------------------------------------------
+       6-2. 学習・章別進捗タブ
+       ------------------------------------------------------------------------- */
+    function renderStudyTab() {
+      const q = computeOverallProgressAndQuotas();
+      const targetSubjectSet = getTargetExamSubjectNameSet();
+
+      const filtered = appState.subjects.filter(s => {
+        if (uiState.studyFilter === '教養' && s.category !== '教養') return false;
+        if (uiState.studyFilter === '専門' && s.category !== '専門') return false;
+        if (uiState.studyFilter === 'target' && !targetSubjectSet.has(s.name)) return false;
+        if (uiState.studySearch.trim()) {
+          const kw = uiState.studySearch.trim().toLowerCase();
+          const hitSub = s.name.toLowerCase().includes(kw);
+          const hitCh = (s.chapters || []).some(c => c.title.toLowerCase().includes(kw));
+          if (!hitSub && !hitCh) return false;
+        }
+        return true;
+      });
+
+      const filters = [
+        { id: 'all', label: `すべて (${appState.subjects.length})` },
+        { id: 'target', label: '志望対象' },
+        { id: '教養', label: '教養' },
+        { id: '専門', label: '専門' }
+      ];
+
+      return `
+        <div class="space-y-4">
+          ${renderPeriodQuotaCard(q, true)}
+
+          <!-- フィルタ＆検索バー -->
+          <div class="bg-white rounded-3xl p-3.5 shadow-sm border border-slate-200/70 space-y-2.5">
+            <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar">
+              ${filters.map(f => `
+                <button type="button" data-study-filter="${f.id}" class="study-filter-btn shrink-0 px-3 py-1.5 rounded-xl text-xs font-bold transition-colors ${uiState.studyFilter === f.id ? 'bg-navy-900 text-white shadow-sm' : 'bg-slate-100 text-slate-600 hover:bg-slate-200'}">${f.label}</button>
+              `).join('')}
+            </div>
+            <div class="relative">
+              <svg class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/></svg>
+              <input type="text" id="studySearchInput" value="${escapeHtml(uiState.studySearch)}" placeholder="科目名・章タイトルで検索..." class="w-full pl-9 pr-3 py-2 rounded-xl bg-slate-100/80 border border-transparent focus:border-blue-400 focus:bg-white text-xs outline-none transition-all">
+            </div>
+          </div>
+
+          <!-- 科目カードリスト -->
+          <div class="space-y-3" id="subjectCardList">
+            ${filtered.length === 0 ? `
+              <div class="bg-white rounded-3xl p-8 text-center border border-slate-200/70">
+                <p class="text-sm font-semibold text-slate-500">該当する科目がありません</p>
+                <button type="button" id="emptyAddSubjectBtn" class="mt-3 px-4 py-2 rounded-xl bg-blue-600 text-white text-xs font-bold">＋ 新しい科目を追加</button>
+              </div>
+            ` : filtered.map(sub => renderSubjectCard(sub, targetSubjectSet.has(sub.name))).join('')}
+          </div>
+        </div>
+      `;
+    }
+
+    function renderSubjectCard(sub, isTargetNeeded) {
+      const st = getSubjectStats(sub);
+      const isExpanded = uiState.expandedSubjectIds.has(sub.id);
+      const chCount = (sub.chapters || []).length;
+      const catBadge = sub.category === '教養'
+        ? 'bg-blue-50 text-blue-700 border-blue-200/70'
+        : 'bg-indigo-50 text-indigo-700 border-indigo-200/70';
+
+      return `
+        <article class="bg-white rounded-3xl shadow-sm border border-slate-200/75 overflow-hidden transition-all">
+          <div class="p-4">
+            <!-- 科目ヘッダー -->
+            <div class="flex items-start justify-between gap-2">
+              <div class="min-w-0">
+                <div class="flex items-center flex-wrap gap-1.5 mb-1">
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-md border ${catBadge}">${sub.category}</span>
+                  ${isTargetNeeded ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-emerald-50 text-emerald-700 border border-emerald-200/70">志望対象</span>` : ''}
+                  ${st.hasChapters ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-slate-100 text-slate-600">章合算中 (${chCount}章)</span>` : ''}
+                </div>
+                <h3 class="text-sm font-bold text-navy-900 leading-snug">${escapeHtml(sub.name)}</h3>
+                ${sub.memo ? `<p class="text-[11px] text-slate-400 mt-0.5 truncate">${escapeHtml(sub.memo)}</p>` : ''}
+              </div>
+              <div class="flex items-center gap-1 shrink-0">
+                <button type="button" data-edit-sub="${sub.id}" class="sub-edit-btn p-2 rounded-xl text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-colors" aria-label="科目を編集">
+                  <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"/></svg>
+                </button>
+              </div>
+            </div>
+
+            <!-- 進捗バー -->
+            <div class="mt-3">
+              <div class="flex items-baseline justify-between text-xs mb-1.5">
+                <span class="font-bold text-slate-700">
+                  ${st.done.toLocaleString()} <span class="font-normal text-slate-400">/ ${st.target.toLocaleString()} ${escapeHtml(sub.unit)}</span>
+                </span>
+                <span class="font-extrabold ${st.pct === 100 ? 'text-emerald-600' : 'text-blue-600'}">${st.pct}%</span>
+              </div>
+              <div class="w-full h-2.5 bg-slate-100 rounded-full overflow-hidden">
+                <div class="${st.pct === 100 ? 'bg-emerald-500' : 'bg-blue-600'} h-full rounded-full transition-all duration-300" style="width:${st.pct}%"></div>
+              </div>
+            </div>
+
+            <!-- 操作エリア（親ダイレクト操作 or 章展開ボタン） -->
+            <div class="mt-3.5 flex items-center justify-between gap-2 flex-wrap">
+              ${st.hasChapters ? `
+                <span class="text-[11px] text-slate-500 bg-slate-50 px-2.5 py-1.5 rounded-xl border border-slate-200/70">下の「章別管理」から各章を記録</span>
+              ` : `
+                <div class="flex items-center gap-1.5">
+                  <button type="button" data-sub-delta="${sub.id}:-1" class="sub-delta-btn w-9 h-9 rounded-xl bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 text-xs font-bold transition-all">-1</button>
+                  <button type="button" data-sub-delta="${sub.id}:1" class="sub-delta-btn px-3 h-9 rounded-xl bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-xs font-bold shadow-sm transition-all">+1</button>
+                  <button type="button" data-sub-delta="${sub.id}:5" class="sub-delta-btn px-3 h-9 rounded-xl bg-navy-800 hover:bg-navy-900 active:scale-95 text-white text-xs font-bold shadow-sm transition-all">+5</button>
+                </div>
+              `}
+
+              <button type="button" data-toggle-ch="${sub.id}" class="toggle-ch-btn px-3 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 transition-colors ${isExpanded ? 'bg-blue-50 text-blue-700 border border-blue-200' : 'bg-slate-100 text-slate-700 hover:bg-slate-200'}">
+                <svg class="w-3.5 h-3.5 transition-transform ${isExpanded ? 'rotate-180' : ''}" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/></svg>
+                <span>章別管理${chCount > 0 ? ` (${chCount})` : ''}</span>
+              </button>
+            </div>
+          </div>
+
+          <!-- 折りたたみ式：章別進捗パネル -->
+          ${isExpanded ? `
+            <div class="bg-slate-50/90 border-t border-slate-200/80 p-3.5 space-y-3">
+              <div class="flex items-center justify-between gap-2 flex-wrap">
+                <span class="text-[11px] font-bold text-navy-900">章ごとの進捗（単位：${escapeHtml(sub.unit)}）</span>
+                <div class="flex items-center gap-1.5">
+                  <button type="button" data-bulk-ch="${sub.id}" class="bulk-ch-btn px-2.5 py-1.5 rounded-xl bg-white border border-blue-200 text-blue-700 hover:bg-blue-50 text-[11px] font-bold shadow-xs transition-colors">章を一括生成</button>
+                  <button type="button" data-add-ch="${sub.id}" class="add-ch-btn px-2.5 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-[11px] font-bold shadow-xs transition-colors">＋ 章を追加</button>
+                </div>
+              </div>
+
+              ${chCount === 0 ? `
+                <div class="bg-white rounded-2xl p-4 text-center border border-dashed border-slate-300">
+                  <p class="text-xs text-slate-500">まだ章が登録されていません。</p>
+                  <p class="text-[11px] text-slate-400 mt-1">「章を一括生成」で第1章〜第10章をワンタップ作成できます。章を作ると親科目の合計へ自動合算されます。</p>
+                </div>
+              ` : `
+                <div class="space-y-2">
+                  ${sub.chapters.map(ch => {
+                    const chTarget = Math.max(1, Number(ch.target) || 1);
+                    const chDone = Math.max(0, Math.min(Number(ch.done) || 0, chTarget));
+                    const chPct = Math.min(100, Math.round((chDone / chTarget) * 100));
+                    const isComplete = chDone >= chTarget;
+                    return `
+                      <div class="bg-white rounded-2xl p-3 border ${isComplete ? 'border-emerald-200 bg-emerald-50/30' : 'border-slate-200/80'} shadow-2xs">
+                        <div class="flex items-start justify-between gap-2">
+                          <div class="min-w-0 flex-1">
+                            <p class="text-xs font-bold text-slate-800 leading-snug break-words">${escapeHtml(ch.title)}</p>
+                            <p class="text-[11px] text-slate-500 mt-0.5">${chDone} / ${chTarget} ${escapeHtml(sub.unit)} <span class="font-bold ${isComplete ? 'text-emerald-600' : 'text-blue-600'} ml-1">${chPct}%</span></p>
+                          </div>
+                          <div class="flex items-center gap-1 shrink-0">
+                            <button type="button" data-edit-ch="${sub.id}:${ch.id}" class="edit-ch-btn p-1.5 rounded-lg text-slate-400 hover:text-blue-600 hover:bg-blue-50" aria-label="章を編集">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M15.232 5.232l3.536 3.536m-2.036-5.036a2.5 2.5 0 113.536 3.536L6.5 21.036H3v-3.572L16.732 3.732z"/></svg>
+                            </button>
+                            <button type="button" data-del-ch="${sub.id}:${ch.id}" class="del-ch-btn p-1.5 rounded-lg text-slate-400 hover:text-rose-600 hover:bg-rose-50" aria-label="章を削除">
+                              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                            </button>
+                          </div>
+                        </div>
+                        <div class="w-full h-1.5 bg-slate-100 rounded-full overflow-hidden my-2">
+                          <div class="${isComplete ? 'bg-emerald-500' : 'bg-blue-500'} h-full rounded-full transition-all duration-300" style="width:${chPct}%"></div>
+                        </div>
+                        <div class="flex items-center justify-end gap-1.5">
+                          <button type="button" data-ch-act="${sub.id}:${ch.id}:-1" class="ch-act-btn px-2.5 py-1.5 rounded-lg bg-slate-100 hover:bg-slate-200 active:scale-95 text-slate-700 text-[11px] font-bold">-1</button>
+                          <button type="button" data-ch-act="${sub.id}:${ch.id}:1" class="ch-act-btn px-2.5 py-1.5 rounded-lg bg-blue-600 hover:bg-blue-700 active:scale-95 text-white text-[11px] font-bold">+1</button>
+                          <button type="button" data-ch-act="${sub.id}:${ch.id}:5" class="ch-act-btn px-2.5 py-1.5 rounded-lg bg-navy-800 hover:bg-navy-900 active:scale-95 text-white text-[11px] font-bold">+5</button>
+                          <button type="button" data-ch-act="${sub.id}:${ch.id}:complete" class="ch-act-btn px-2.5 py-1.5 rounded-lg ${isComplete ? 'bg-emerald-100 text-emerald-700' : 'bg-emerald-600 hover:bg-emerald-700 text-white'} active:scale-95 text-[11px] font-bold">${isComplete ? '完了済' : '完了'}</button>
+                        </div>
+                      </div>
+                    `;
+                  }).join('')}
+                </div>
+              `}
+            </div>
+          ` : ''}
+        </article>
+      `;
+    }
+
+    function bindStudyEvents() {
+      document.querySelectorAll('.study-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          uiState.studyFilter = btn.dataset.studyFilter;
+          renderApp();
+        });
+      });
+
+      const searchInput = document.getElementById('studySearchInput');
+      if (searchInput) {
+        searchInput.addEventListener('input', (e) => {
+          uiState.studySearch = e.target.value;
+          // 検索入力のフォーカスを維持するため、リスト部分のみ再描画
+          const targetSubjectSet = getTargetExamSubjectNameSet();
+          const filtered = appState.subjects.filter(s => {
+            if (uiState.studyFilter === '教養' && s.category !== '教養') return false;
+            if (uiState.studyFilter === '専門' && s.category !== '専門') return false;
+            if (uiState.studyFilter === 'target' && !targetSubjectSet.has(s.name)) return false;
+            if (uiState.studySearch.trim()) {
+              const kw = uiState.studySearch.trim().toLowerCase();
+              return s.name.toLowerCase().includes(kw) || (s.chapters || []).some(c => c.title.toLowerCase().includes(kw));
+            }
+            return true;
+          });
+          const listEl = document.getElementById('subjectCardList');
+          if (listEl) {
+            listEl.innerHTML = filtered.length === 0
+              ? `<div class="bg-white rounded-3xl p-8 text-center border border-slate-200/70"><p class="text-sm font-semibold text-slate-500">該当する科目がありません</p></div>`
+              : filtered.map(sub => renderSubjectCard(sub, targetSubjectSet.has(sub.name))).join('');
+            bindSubjectCardInnerEvents();
+          }
+        });
+      }
+
+      const emptyAddBtn = document.getElementById('emptyAddSubjectBtn');
+      if (emptyAddBtn) emptyAddBtn.addEventListener('click', () => openSubjectEditModal(null));
+
+      bindSubjectCardInnerEvents();
+    }
+
+    function bindSubjectCardInnerEvents() {
+      // 科目編集
+      document.querySelectorAll('.sub-edit-btn').forEach(btn => {
+        btn.addEventListener('click', () => openSubjectEditModal(btn.dataset.editSub));
+      });
+
+      // 親科目の直接カウント操作（章がない場合）
+      document.querySelectorAll('.sub-delta-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const [subId, deltaStr] = btn.dataset.subDelta.split(':');
+          const delta = Number(deltaStr);
+          const sub = appState.subjects.find(s => s.id === subId);
+          if (!sub) return;
+          const prev = Number(sub.done) || 0;
+          const next = Math.max(0, Math.min(sub.target, prev + delta));
+          const actualDelta = next - prev;
+          if (actualDelta !== 0) {
+            sub.done = next;
+            recordDailyDelta(actualDelta);
+            saveState();
+            renderApp();
+          }
+        });
+      });
+
+      // 章別パネル折りたたみ切替
+      document.querySelectorAll('.toggle-ch-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.toggleCh;
+          if (uiState.expandedSubjectIds.has(id)) {
+            uiState.expandedSubjectIds.delete(id);
+          } else {
+            uiState.expandedSubjectIds.add(id);
+          }
+          renderApp();
+        });
+      });
+
+      // 章の一括生成
+      document.querySelectorAll('.bulk-ch-btn').forEach(btn => {
+        btn.addEventListener('click', () => openBulkChapterModal(btn.dataset.bulkCh));
+      });
+
+      // 個別章の追加
+      document.querySelectorAll('.add-ch-btn').forEach(btn => {
+        btn.addEventListener('click', () => openChapterEditModal(btn.dataset.addCh, null));
+      });
+
+      // 個別章の編集
+      document.querySelectorAll('.edit-ch-btn').forEach(btn => {
+        const [subId, chId] = btn.dataset.editCh.split(':');
+        btn.addEventListener('click', () => openChapterEditModal(subId, chId));
+      });
+
+      // 個別章の削除
+      document.querySelectorAll('.del-ch-btn').forEach(btn => {
+        const [subId, chId] = btn.dataset.delCh.split(':');
+        btn.addEventListener('click', () => {
+          const sub = appState.subjects.find(s => s.id === subId);
+          const ch = sub?.chapters.find(c => c.id === chId);
+          if (!sub || !ch) return;
+          openConfirmModal({
+            title: '章を削除しますか？',
+            message: `「${ch.title}」を削除します。この章の記録分も親科目の合計から差し引かれます。`,
+            confirmLabel: '削除する',
+            danger: true,
+            onConfirm: () => {
+              sub.chapters = sub.chapters.filter(c => c.id !== chId);
+              saveState();
+              showToast('章を削除しました');
+              renderApp();
+            }
+          });
+        });
+      });
+
+      // 章のクイック進捗操作（-1 / +1 / +5 / 完了）
+      document.querySelectorAll('.ch-act-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const [subId, chId, act] = btn.dataset.chAct.split(':');
+          const sub = appState.subjects.find(s => s.id === subId);
+          const ch = sub?.chapters.find(c => c.id === chId);
+          if (!sub || !ch) return;
+          const prev = Number(ch.done) || 0;
+          let next = prev;
+          if (act === 'complete') {
+            next = ch.target;
+          } else {
+            next = Math.max(0, Math.min(ch.target, prev + Number(act)));
+          }
+          const actualDelta = next - prev;
+          if (actualDelta !== 0) {
+            ch.done = next;
+            recordDailyDelta(actualDelta);
+            saveState();
+            renderApp();
+          }
+        });
+      });
+    }
+
+    /* 科目追加・編集モーダル */
+    function openSubjectEditModal(subjectId) {
+      const existing = subjectId ? appState.subjects.find(s => s.id === subjectId) : null;
+      const isEdit = Boolean(existing);
+      const hasCh = isEdit && existing.chapters && existing.chapters.length > 0;
+      const units = ['ページ', '問', '動画・講義'];
+
+      openModal({
+        title: isEdit ? '科目を編集' : '新しい科目を追加',
+        bodyHtml: `
+          <div class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">科目名</label>
+              <input type="text" id="subFormName" value="${escapeHtml(existing ? existing.name : '')}" placeholder="例：労働法、商法、英語長文" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">分野</label>
+                <select id="subFormCat" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm bg-white">
+                  <option value="教養" ${existing?.category === '教養' ? 'selected' : ''}>教養科目</option>
+                  <option value="専門" ${!existing || existing.category === '専門' ? 'selected' : ''}>専門科目</option>
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">単位</label>
+                <select id="subFormUnit" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm bg-white">
+                  ${units.map(u => `<option value="${u}" ${existing?.unit === u ? 'selected' : ''}>${u}</option>`).join('')}
+                </select>
+              </div>
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">目標総数 ${hasCh ? '<span class="text-[11px] font-normal text-amber-600">（章が登録されているため章合計が優先されます）</span>' : ''}</label>
+              <input type="number" min="1" id="subFormTarget" value="${existing ? existing.target : 100}" ${hasCh ? 'disabled' : ''} class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm ${hasCh ? 'bg-slate-100 text-slate-400' : ''}">
+            </div>
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">教材・メモ（任意）</label>
+              <input type="text" id="subFormMemo" value="${escapeHtml(existing ? existing.memo : '')}" placeholder="例：スー過去 2周目標" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+            </div>
+          </div>
+        `,
+        footerHtml: `
+          ${isEdit ? `<button type="button" id="subFormDeleteBtn" class="mr-auto px-3.5 py-2.5 rounded-xl bg-rose-50 hover:bg-rose-100 text-rose-600 text-xs font-bold">削除</button>` : ''}
+          <button type="button" id="subFormCancelBtn" class="px-4 py-2.5 rounded-xl bg-slate-200/80 text-slate-700 text-sm font-semibold">キャンセル</button>
+          <button type="button" id="subFormSaveBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">保存</button>
+        `,
+        onOpen: () => {
+          document.getElementById('subFormCancelBtn').addEventListener('click', closeModal);
+          document.getElementById('subFormSaveBtn').addEventListener('click', () => {
+            const name = document.getElementById('subFormName').value.trim();
+            if (!name) {
+              showToast('科目名を入力してください', 'error');
+              return;
+            }
+            const cat = document.getElementById('subFormCat').value;
+            const unit = document.getElementById('subFormUnit').value;
+            const target = Math.max(1, Number(document.getElementById('subFormTarget').value) || 100);
+            const memo = document.getElementById('subFormMemo').value.trim();
+
+            if (isEdit) {
+              existing.name = name;
+              existing.category = cat;
+              existing.unit = unit;
+              if (!hasCh) {
+                existing.target = target;
+                existing.done = Math.min(existing.done, target);
+              }
+              existing.memo = memo;
+              showToast('科目を更新しました');
+            } else {
+              appState.subjects.push({
+                id: uid('sub'),
+                name,
+                category: cat,
+                unit,
+                target,
+                done: 0,
+                memo,
+                chapters: []
+              });
+              showToast('科目を追加しました');
+            }
+            saveState();
+            closeModal();
+            renderApp();
+          });
+
+          const delBtn = document.getElementById('subFormDeleteBtn');
+          if (delBtn) {
+            delBtn.addEventListener('click', () => {
+              openConfirmModal({
+                title: '科目を削除しますか？',
+                message: `「${existing.name}」と登録済みの章データを完全に削除します。`,
+                confirmLabel: '削除する',
+                danger: true,
+                onConfirm: () => {
+                  appState.subjects = appState.subjects.filter(s => s.id !== existing.id);
+                  saveState();
+                  showToast('科目を削除しました');
+                  renderApp();
+                }
+              });
+            });
+          }
+        }
+      });
+    }
+
+    /* 章の一括生成モーダル */
+    function openBulkChapterModal(subjectId) {
+      const sub = appState.subjects.find(s => s.id === subjectId);
+      if (!sub) return;
+      const nextIndex = (sub.chapters?.length || 0) + 1;
+
+      openModal({
+        title: `章を一括生成（${sub.name}）`,
+        bodyHtml: `
+          <p class="text-xs text-slate-500 leading-relaxed">指定した数だけ「第○章」の枠をまとめて作成します。作成後に各章のタイトルや目標数を個別に変更できます。</p>
+          <div class="grid grid-cols-3 gap-2.5">
+            <div>
+              <label class="block text-[11px] font-bold text-slate-700 mb-1">開始番号</label>
+              <input type="number" min="1" id="bulkStartNum" value="${nextIndex}" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-700 mb-1">作成する章数</label>
+              <input type="number" min="1" max="50" id="bulkCount" value="10" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm">
+            </div>
+            <div>
+              <label class="block text-[11px] font-bold text-slate-700 mb-1">1章の目標(${escapeHtml(sub.unit)})</label>
+              <input type="number" min="1" id="bulkTarget" value="15" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 text-sm">
+            </div>
+          </div>
+          <div class="bg-blue-50/70 rounded-2xl p-3 text-[11px] text-blue-800">
+            例：開始1・章数10・目標15 →「第1章」〜「第10章」（各15${escapeHtml(sub.unit)}・計150${escapeHtml(sub.unit)}）を作成します。
+          </div>
+        `,
+        footerHtml: `
+          <button type="button" id="bulkCancelBtn" class="px-4 py-2.5 rounded-xl bg-slate-200/80 text-slate-700 text-sm font-semibold">キャンセル</button>
+          <button type="button" id="bulkCreateBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">一括生成する</button>
+        `,
+        onOpen: () => {
+          document.getElementById('bulkCancelBtn').addEventListener('click', closeModal);
+          document.getElementById('bulkCreateBtn').addEventListener('click', () => {
+            const start = Math.max(1, Number(document.getElementById('bulkStartNum').value) || 1);
+            const count = Math.max(1, Math.min(50, Number(document.getElementById('bulkCount').value) || 10));
+            const target = Math.max(1, Number(document.getElementById('bulkTarget').value) || 10);
+            if (!Array.isArray(sub.chapters)) sub.chapters = [];
+            for (let i = 0; i < count; i++) {
+              sub.chapters.push({
+                id: uid('ch'),
+                title: `第${start + i}章`,
+                target,
+                done: 0
+              });
+            }
+            uiState.expandedSubjectIds.add(sub.id);
+            saveState();
+            closeModal();
+            showToast(`${count}個の章を作成しました`);
+            renderApp();
+          });
+        }
+      });
+    }
+
+    /* 個別の章 追加・編集モーダル */
+    function openChapterEditModal(subjectId, chapterId) {
+      const sub = appState.subjects.find(s => s.id === subjectId);
+      if (!sub) return;
+      const existing = chapterId ? sub.chapters.find(c => c.id === chapterId) : null;
+      const isEdit = Boolean(existing);
+      const defaultTitle = `第${(sub.chapters?.length || 0) + 1}章 `;
+
+      openModal({
+        title: isEdit ? '章を編集' : `章を追加（${sub.name}）`,
+        bodyHtml: `
+          <div class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">章タイトル</label>
+              <input type="text" id="chFormTitle" value="${escapeHtml(existing ? existing.title : defaultTitle)}" placeholder="例：第1章 数的推理・整数" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">目標数（${escapeHtml(sub.unit)}）</label>
+                <input type="number" min="1" id="chFormTarget" value="${existing ? existing.target : 20}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">現在の達成数</label>
+                <input type="number" min="0" id="chFormDone" value="${existing ? existing.done : 0}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+              </div>
+            </div>
+          </div>
+        `,
+        footerHtml: `
+          <button type="button" id="chCancelBtn" class="px-4 py-2.5 rounded-xl bg-slate-200/80 text-slate-700 text-sm font-semibold">キャンセル</button>
+          <button type="button" id="chSaveBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">保存</button>
+        `,
+        onOpen: () => {
+          document.getElementById('chCancelBtn').addEventListener('click', closeModal);
+          document.getElementById('chSaveBtn').addEventListener('click', () => {
+            const title = document.getElementById('chFormTitle').value.trim();
+            if (!title) {
+              showToast('章タイトルを入力してください', 'error');
+              return;
+            }
+            const target = Math.max(1, Number(document.getElementById('chFormTarget').value) || 10);
+            const done = Math.max(0, Math.min(target, Number(document.getElementById('chFormDone').value) || 0));
+
+            if (isEdit) {
+              const delta = done - existing.done;
+              existing.title = title;
+              existing.target = target;
+              existing.done = done;
+              if (delta !== 0) recordDailyDelta(delta);
+              showToast('章を更新しました');
+            } else {
+              if (!Array.isArray(sub.chapters)) sub.chapters = [];
+              sub.chapters.push({ id: uid('ch'), title, target, done });
+              if (done > 0) recordDailyDelta(done);
+              uiState.expandedSubjectIds.add(sub.id);
+              showToast('章を追加しました');
+            }
+            saveState();
+            closeModal();
+            renderApp();
+          });
+        }
+      });
+    }
+
+    /* -------------------------------------------------------------------------
+       6-3. 日程・予定タブ
+       ------------------------------------------------------------------------- */
+    function renderScheduleTab() {
+      const duplicates = getDuplicateDateAlerts();
+      const duplicateDateSet = new Set(duplicates.map(d => d.date));
+
+      const examItems = EXAM_MASTER
+        .map(m => ({ master: m, user: appState.exams[m.id] }))
+        .filter(it => uiState.scheduleFilter === 'all' || it.user.isTarget);
+
+      // 確定日タイムライン（月別グルーピング）
+      const confirmedTimeline = EXAM_MASTER
+        .map(m => ({ master: m, user: appState.exams[m.id] }))
+        .filter(it => it.user.isTarget && it.user.firstExamDate)
+        .sort((a, b) => a.user.firstExamDate.localeCompare(b.user.firstExamDate));
+
+      const sortedEvents = [...appState.myEvents].sort((a, b) => {
+        if (a.done !== b.done) return a.done ? 1 : -1;
+        return (a.date || '9999-99-99').localeCompare(b.date || '9999-99-99');
+      });
+
+      return `
+        <div class="space-y-4">
+          <!-- 日程重複アラート（確定済み志望試験同士のみ対象・未定TBDは除外） -->
+          ${duplicates.length > 0 ? `
+            <section class="bg-rose-50 border-2 border-rose-300 rounded-3xl p-4 shadow-sm">
+              <div class="flex items-start gap-2.5">
+                <div class="w-8 h-8 rounded-xl bg-rose-600 text-white flex items-center justify-center shrink-0">
+                  <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/></svg>
+                </div>
+                <div class="text-xs text-rose-900 space-y-1">
+                  <p class="font-extrabold text-sm">日程重複アラート</p>
+                  <p class="text-[11px] text-rose-800">志望中の試験で1次試験日が同日になっています。受験方式（早期SPI枠など）や併願先を見直してください。</p>
+                  ${duplicates.map(d => `
+                    <div class="bg-white/80 rounded-xl px-3 py-2 border border-rose-200 font-bold">
+                      ${formatDateJP(d.date)}：${d.names.join(' × ')}
+                    </div>
+                  `).join('')}
+                </div>
+              </div>
+            </section>
+          ` : `
+            <div class="bg-emerald-50/90 border border-emerald-200/80 rounded-2xl px-4 py-2.5 flex items-center gap-2 text-xs text-emerald-800 font-semibold">
+              <svg class="w-4 h-4 text-emerald-600 shrink-0" fill="none" stroke="currentColor" stroke-width="2.4" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+              <span>確定済みの志望試験に日程重複はありません（未定TBDは除外）</span>
+            </div>
+          `}
+
+          <!-- 志望試験・確定日程タイムライン -->
+          ${confirmedTimeline.length > 0 ? `
+            <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70">
+              <h2 class="text-sm font-bold text-navy-900 mb-3">確定済み志望試験タイムライン</h2>
+              <div class="relative pl-5 space-y-3 before:content-[''] before:absolute before:left-2 before:top-2 before:bottom-2 before:w-0.5 before:bg-blue-100">
+                ${confirmedTimeline.map(({ master, user }) => {
+                  const days = getDaysUntil(user.firstExamDate);
+                  const isDup = duplicateDateSet.has(user.firstExamDate);
+                  return `
+                    <div class="relative flex items-center justify-between gap-2 bg-slate-50 rounded-2xl px-3 py-2.5 border ${isDup ? 'border-rose-300 bg-rose-50/60' : 'border-slate-100'}">
+                      <span class="w-3 h-3 rounded-full ${isDup ? 'bg-rose-500' : 'bg-blue-600'} border-2 border-white shadow-xs absolute -left-[1.15rem]"></span>
+                      <div class="min-w-0">
+                        <p class="text-[11px] font-bold ${isDup ? 'text-rose-700' : 'text-blue-700'}">${formatDateJP(user.firstExamDate)}</p>
+                        <p class="text-xs font-bold text-slate-800 truncate">${escapeHtml(master.shortName)}</p>
+                      </div>
+                      <span class="text-[11px] font-extrabold px-2.5 py-1 rounded-full ${days >= 0 ? 'bg-white text-navy-900 border border-slate-200' : 'bg-slate-200 text-slate-500'} shrink-0">
+                        ${days >= 0 ? `あと${days}日` : '終了'}
+                      </span>
+                    </div>
+                  `;
+                }).join('')}
+              </div>
+            </section>
+          ` : ''}
+
+          <!-- 全8区分 試験日程一覧＆手動編集 -->
+          <section class="space-y-3">
+            <div class="flex items-center justify-between px-1">
+              <h2 class="text-sm font-bold text-navy-900">試験日程一覧（手動編集可）</h2>
+              <div class="inline-flex bg-slate-200/80 p-0.5 rounded-xl text-[11px] font-bold">
+                <button type="button" data-sched-filter="all" class="sched-filter-btn px-2.5 py-1 rounded-lg ${uiState.scheduleFilter === 'all' ? 'bg-white text-navy-900 shadow-2xs' : 'text-slate-500'}">全8区分</button>
+                <button type="button" data-sched-filter="target" class="sched-filter-btn px-2.5 py-1 rounded-lg ${uiState.scheduleFilter === 'target' ? 'bg-white text-navy-900 shadow-2xs' : 'text-slate-500'}">志望のみ</button>
+              </div>
+            </div>
+
+            <div class="space-y-2.5">
+              ${examItems.map(({ master, user }) => {
+                const hasDate = Boolean(user.firstExamDate);
+                const days = hasDate ? getDaysUntil(user.firstExamDate) : null;
+                const isDup = user.isTarget && hasDate && duplicateDateSet.has(user.firstExamDate);
+                return `
+                  <article class="bg-white rounded-3xl p-4 shadow-sm border ${isDup ? 'border-rose-300' : (user.isTarget ? 'border-blue-200/90' : 'border-slate-200/70')}">
+                    <div class="flex items-start justify-between gap-2">
+                      <div class="min-w-0">
+                        <div class="flex items-center flex-wrap gap-1.5 mb-1">
+                          <button type="button" data-toggle-target="${master.id}" class="toggle-target-btn text-[10px] font-bold px-2 py-0.5 rounded-full transition-colors ${user.isTarget ? 'bg-blue-600 text-white' : 'bg-slate-100 text-slate-500 hover:bg-slate-200'}">
+                            ${user.isTarget ? '★ 志望中' : '☆ 対象外'}
+                          </button>
+                          <span class="text-[10px] font-semibold text-slate-400">${master.category}</span>
+                          ${isDup ? `<span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-rose-100 text-rose-700">日程重複</span>` : ''}
+                        </div>
+                        <h3 class="text-sm font-bold text-navy-900">${escapeHtml(master.name)}</h3>
+                      </div>
+                      <button type="button" data-edit-exam="${master.id}" class="sched-edit-exam-btn shrink-0 px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-blue-50 hover:text-blue-700 text-slate-700 text-xs font-bold transition-colors">編集</button>
+                    </div>
+
+                    <div class="mt-3 grid grid-cols-1 sm:grid-cols-3 gap-2 text-xs">
+                      <div class="rounded-2xl px-3 py-2 ${hasDate ? 'bg-blue-50/60 border border-blue-100' : 'bg-amber-50/70 border border-amber-200/70'}">
+                        <span class="block text-[10px] font-bold ${hasDate ? 'text-blue-700' : 'text-amber-700'}">1次試験日</span>
+                        <div class="flex items-center justify-between mt-0.5">
+                          <span class="font-bold text-slate-800">${hasDate ? formatDateShort(user.firstExamDate) : '日程未定 (TBD)'}</span>
+                          ${hasDate && days !== null ? `<span class="text-[10px] font-extrabold ${days >= 0 ? 'text-blue-700' : 'text-slate-400'}">${days >= 0 ? `残${days}日` : '済'}</span>` : ''}
+                        </div>
+                      </div>
+                      <div class="rounded-2xl px-3 py-2 bg-slate-50 border border-slate-100">
+                        <span class="block text-[10px] font-bold text-slate-500">申込締切日</span>
+                        <span class="font-semibold text-slate-700 mt-0.5 block">${user.deadlineDate ? formatDateShort(user.deadlineDate) : '未設定'}</span>
+                      </div>
+                      <div class="rounded-2xl px-3 py-2 bg-slate-50 border border-slate-100">
+                        <span class="block text-[10px] font-bold text-slate-500">2次試験日</span>
+                        <span class="font-semibold text-slate-700 mt-0.5 block">${user.secondExamDate ? formatDateShort(user.secondExamDate) : '未設定'}</span>
+                      </div>
+                    </div>
+
+                    ${user.memo ? `
+                      <p class="mt-2.5 text-[11px] text-slate-500 bg-slate-50/80 rounded-xl px-3 py-1.5">メモ：${escapeHtml(user.memo)}</p>
+                    ` : ''}
+                  </article>
+                `;
+              }).join('')}
+            </div>
+          </section>
+
+          <!-- マイ予定リスト -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70 space-y-3">
+            <div class="flex items-center justify-between">
+              <div>
+                <h2 class="text-sm font-bold text-navy-900">マイ予定リスト（模試・説明会・勉強予定）</h2>
+                <p class="text-[11px] text-slate-400 mt-0.5">登録件数：${appState.myEvents.length}件</p>
+              </div>
+              <button type="button" id="schedAddEventBtn" class="px-3 py-1.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold">＋ 追加</button>
+            </div>
+
+            ${sortedEvents.length === 0 ? `
+              <div class="text-center py-6 bg-slate-50 rounded-2xl border border-dashed border-slate-200">
+                <p class="text-xs text-slate-400">予定はまだ登録されていません（0件）</p>
+              </div>
+            ` : `
+              <div class="space-y-2">
+                ${sortedEvents.map(ev => `
+                  <div class="flex items-center gap-2.5 p-3 rounded-2xl border ${ev.done ? 'bg-slate-50 border-slate-100 opacity-70' : 'bg-white border-slate-200/80'}">
+                    <button type="button" data-toggle-ev="${ev.id}" class="ev-toggle-btn w-6 h-6 rounded-full border-2 flex items-center justify-center shrink-0 transition-colors ${ev.done ? 'bg-emerald-500 border-emerald-500 text-white' : 'border-slate-300 hover:border-blue-500'}" aria-label="完了切替">
+                      ${ev.done ? `<svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>` : ''}
+                    </button>
+                    <div class="flex-1 min-w-0">
+                      <div class="flex items-center gap-1.5 flex-wrap">
+                        <span class="text-[10px] font-bold px-2 py-0.5 rounded-md bg-blue-50 text-blue-700">${escapeHtml(ev.category)}</span>
+                        ${ev.date ? `<span class="text-[11px] font-semibold text-slate-500">${formatDateShort(ev.date)}</span>` : ''}
+                      </div>
+                      <p class="text-xs font-bold text-slate-800 mt-0.5 ${ev.done ? 'line-through text-slate-400' : ''}">${escapeHtml(ev.title)}</p>
+                    </div>
+                    <button type="button" data-del-ev="${ev.id}" class="ev-del-btn p-2 rounded-xl text-slate-400 hover:text-rose-600 hover:bg-rose-50 shrink-0" aria-label="予定を削除">
+                      <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                    </button>
+                  </div>
+                `).join('')}
+              </div>
+            `}
+          </section>
+        </div>
+      `;
+    }
+
+    function bindScheduleEvents() {
+      document.querySelectorAll('.sched-filter-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          uiState.scheduleFilter = btn.dataset.schedFilter;
+          renderApp();
+        });
+      });
+
+      document.querySelectorAll('.toggle-target-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const id = btn.dataset.toggleTarget;
+          if (!appState.exams[id]) return;
+          appState.exams[id].isTarget = !appState.exams[id].isTarget;
+          appState.hasEditedSchedule = true;
+          saveState();
+          renderApp();
+        });
+      });
+
+      document.querySelectorAll('.sched-edit-exam-btn').forEach(btn => {
+        btn.addEventListener('click', () => openExamEditModal(btn.dataset.editExam));
+      });
+
+      const addEvBtn = document.getElementById('schedAddEventBtn');
+      if (addEvBtn) addEvBtn.addEventListener('click', () => openEventModal());
+
+      document.querySelectorAll('.ev-toggle-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const ev = appState.myEvents.find(e => e.id === btn.dataset.toggleEv);
+          if (!ev) return;
+          ev.done = !ev.done;
+          saveState();
+          renderApp();
+        });
+      });
+
+      document.querySelectorAll('.ev-del-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          appState.myEvents = appState.myEvents.filter(e => e.id !== btn.dataset.delEv);
+          saveState();
+          showToast('予定を削除しました');
+          renderApp();
+        });
+      });
+    }
+
+    /* 試験日程 手動編集モーダル */
+    function openExamEditModal(examId) {
+      const master = EXAM_MASTER.find(m => m.id === examId);
+      const user = appState.exams[examId];
+      if (!master || !user) return;
+
+      openModal({
+        title: `${master.shortName} の日程編集`,
+        bodyHtml: `
+          <div class="space-y-3.5">
+            <label class="flex items-center justify-between p-3 rounded-2xl bg-slate-50 border border-slate-200 cursor-pointer">
+              <span class="text-xs font-bold text-navy-900">志望試験（カウントダウン・重複チェック対象）</span>
+              <input type="checkbox" id="examFormTarget" ${user.isTarget ? 'checked' : ''} class="w-5 h-5 rounded accent-blue-600">
+            </label>
+
+            <div>
+              <div class="flex items-center justify-between mb-1">
+                <label class="text-xs font-bold text-slate-700">1次試験日（空欄で「未定 TBD」）</label>
+                <button type="button" id="clearFirstDateBtn" class="text-[11px] font-bold text-amber-700 hover:underline">未定(TBD)に戻す</button>
+              </div>
+              <input type="date" id="examFormFirst" value="${escapeHtml(user.firstExamDate)}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm bg-white">
+            </div>
+
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">申込締切日（任意）</label>
+                <input type="date" id="examFormDeadline" value="${escapeHtml(user.deadlineDate)}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm bg-white">
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">2次試験日（任意）</label>
+                <input type="date" id="examFormSecond" value="${escapeHtml(user.secondExamDate)}" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm bg-white">
+              </div>
+            </div>
+
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">受験方式・自治体メモ</label>
+              <input type="text" id="examFormMemo" value="${escapeHtml(user.memo)}" placeholder="例：早期SPI枠、神奈川県庁一般事務 など" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+            </div>
+          </div>
+        `,
+        footerHtml: `
+          <button type="button" id="examCancelBtn" class="px-4 py-2.5 rounded-xl bg-slate-200/80 text-slate-700 text-sm font-semibold">キャンセル</button>
+          <button type="button" id="examSaveBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">保存する</button>
+        `,
+        onOpen: () => {
+          document.getElementById('clearFirstDateBtn').addEventListener('click', () => {
+            document.getElementById('examFormFirst').value = '';
+          });
+          document.getElementById('examCancelBtn').addEventListener('click', closeModal);
+          document.getElementById('examSaveBtn').addEventListener('click', () => {
+            user.isTarget = document.getElementById('examFormTarget').checked;
+            user.firstExamDate = document.getElementById('examFormFirst').value;
+            user.deadlineDate = document.getElementById('examFormDeadline').value;
+            user.secondExamDate = document.getElementById('examFormSecond').value;
+            user.memo = document.getElementById('examFormMemo').value.trim();
+            appState.hasEditedSchedule = true;
+            saveState();
+            closeModal();
+            showToast(`${master.shortName}の日程を保存しました`);
+            renderApp();
+          });
+        }
+      });
+    }
+
+    /* マイ予定 追加モーダル */
+    function openEventModal() {
+      const categories = ['模試', '説明会・インターン', '勉強予定', '出願・手続き', 'その他'];
+      openModal({
+        title: 'マイ予定を追加',
+        bodyHtml: `
+          <div class="space-y-3.5">
+            <div>
+              <label class="block text-xs font-bold text-slate-700 mb-1">予定タイトル</label>
+              <input type="text" id="evFormTitle" placeholder="例：TAC公開模試、横浜市オンライン説明会" class="w-full px-3.5 py-2.5 rounded-xl border border-slate-200 focus:border-blue-500 outline-none text-sm">
+            </div>
+            <div class="grid grid-cols-2 gap-3">
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">カテゴリ</label>
+                <select id="evFormCat" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 bg-white text-sm outline-none">
+                  ${categories.map(c => `<option value="${c}">${c}</option>`).join('')}
+                </select>
+              </div>
+              <div>
+                <label class="block text-xs font-bold text-slate-700 mb-1">日付（任意）</label>
+                <input type="date" id="evFormDate" value="${getTodayStr()}" class="w-full px-3 py-2.5 rounded-xl border border-slate-200 bg-white text-sm outline-none">
+              </div>
+            </div>
+          </div>
+        `,
+        footerHtml: `
+          <button type="button" id="evCancelBtn" class="px-4 py-2.5 rounded-xl bg-slate-200/80 text-slate-700 text-sm font-semibold">キャンセル</button>
+          <button type="button" id="evSaveBtn" class="px-5 py-2.5 rounded-xl bg-blue-600 hover:bg-blue-700 text-white text-sm font-bold">追加する</button>
+        `,
+        onOpen: () => {
+          document.getElementById('evCancelBtn').addEventListener('click', closeModal);
+          document.getElementById('evSaveBtn').addEventListener('click', () => {
+            const title = document.getElementById('evFormTitle').value.trim();
+            if (!title) {
+              showToast('予定タイトルを入力してください', 'error');
+              return;
+            }
+            appState.myEvents.push({
+              id: uid('ev'),
+              title,
+              category: document.getElementById('evFormCat').value,
+              date: document.getElementById('evFormDate').value,
+              done: false
+            });
+            saveState();
+            closeModal();
+            showToast('予定を追加しました');
+            renderApp();
+          });
+        }
+      });
+    }
+
+    /* -------------------------------------------------------------------------
+       6-4. 試験概要・科目比較タブ
+       ------------------------------------------------------------------------- */
+    function renderGuideTab() {
+      return `
+        <div class="space-y-4">
+          <!-- セグメント切り替え（試験概要 ／ 科目比較） -->
+          <div class="bg-slate-200/80 p-1 rounded-2xl grid grid-cols-2 gap-1">
+            <button type="button" data-guide-sub="overview" class="guide-sub-btn py-2.5 rounded-xl text-xs font-bold transition-all ${uiState.guideSubTab === 'overview' ? 'bg-white text-navy-900 shadow-sm' : 'text-slate-600 hover:text-navy-900'}">受験案内・試験概要</button>
+            <button type="button" data-guide-sub="matrix" class="guide-sub-btn py-2.5 rounded-xl text-xs font-bold transition-all ${uiState.guideSubTab === 'matrix' ? 'bg-white text-navy-900 shadow-sm' : 'text-slate-600 hover:text-navy-900'}">必要科目数・科目比較</button>
+          </div>
+
+          ${uiState.guideSubTab === 'overview' ? renderGuideOverviewView() : renderGuideMatrixView()}
+        </div>
+      `;
+    }
+
+    function renderGuideOverviewView() {
+      const selected = EXAM_MASTER.find(m => m.id === uiState.selectedGuideExamId) || EXAM_MASTER[0];
+      const user = appState.exams[selected.id];
+
+      return `
+        <div class="space-y-3.5">
+          <!-- 8区分選択ピル -->
+          <div class="flex items-center gap-1.5 overflow-x-auto no-scrollbar pb-1">
+            ${EXAM_MASTER.map(m => {
+              const active = m.id === selected.id;
+              const isTarget = appState.exams[m.id]?.isTarget;
+              return `
+                <button type="button" data-select-guide="${m.id}" class="guide-exam-pill shrink-0 px-3.5 py-2 rounded-2xl text-xs font-bold border transition-all ${active ? 'bg-navy-900 text-white border-navy-900 shadow-sm' : 'bg-white text-slate-700 border-slate-200 hover:border-blue-300'}">
+                  ${isTarget ? '★ ' : ''}${escapeHtml(m.shortName)}
+                </button>
+              `;
+            }).join('')}
+          </div>
+
+          <!-- 試験概要メインカード -->
+          <article class="bg-white rounded-3xl shadow-sm border border-slate-200/75 overflow-hidden">
+            <div class="bg-gradient-to-r from-navy-900 to-navy-700 text-white p-4">
+              <div class="flex items-start justify-between gap-2">
+                <div>
+                  <span class="text-[10px] font-bold px-2 py-0.5 rounded-full bg-white/15 text-blue-100">${selected.category}</span>
+                  <h2 class="text-base font-extrabold mt-1.5 leading-snug">${escapeHtml(selected.name)}</h2>
+                </div>
+                <button type="button" id="guideToggleTargetBtn" class="shrink-0 px-3 py-1.5 rounded-xl text-[11px] font-bold transition-colors ${user.isTarget ? 'bg-blue-500 text-white' : 'bg-white/15 text-blue-100 hover:bg-white/25'}">
+                  ${user.isTarget ? '★ 志望中' : '☆ 志望に追加'}
+                </button>
+              </div>
+
+              <!-- 必要科目数＆1次日程クイックボックス -->
+              <div class="grid grid-cols-1 sm:grid-cols-3 gap-2 mt-3.5">
+                <div class="bg-white/10 rounded-2xl px-3 py-2 border border-white/10">
+                  <span class="block text-[10px] text-blue-200">1次試験日</span>
+                  <span class="text-xs font-bold">${user.firstExamDate ? formatDateShort(user.firstExamDate) : '日程未定 (TBD)'}</span>
+                </div>
+                <div class="bg-white/10 rounded-2xl px-3 py-2 border border-white/10">
+                  <span class="block text-[10px] text-blue-200">教養の必要数</span>
+                  <span class="text-xs font-bold">${escapeHtml(selected.reqSummary.kyoyo)}</span>
+                </div>
+                <div class="bg-white/10 rounded-2xl px-3 py-2 border border-white/10">
+                  <span class="block text-[10px] text-blue-200">専門の必要数</span>
+                  <span class="text-xs font-bold">${escapeHtml(selected.reqSummary.senmon)}</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="p-4 space-y-4 text-xs leading-relaxed">
+              <div>
+                <h3 class="text-xs font-extrabold text-navy-900 flex items-center gap-1.5 mb-1.5">
+                  <span class="w-1.5 h-4 rounded-full bg-blue-600 inline-block"></span>
+                  1次試験（種目・出題形式・解答時間）
+                </h3>
+                <p class="text-slate-700 bg-slate-50 rounded-2xl p-3 whitespace-pre-line border border-slate-100">${escapeHtml(selected.overview.firstExam)}</p>
+              </div>
+
+              <div>
+                <h3 class="text-xs font-extrabold text-navy-900 flex items-center gap-1.5 mb-1.5">
+                  <span class="w-1.5 h-4 rounded-full bg-indigo-600 inline-block"></span>
+                  2次試験〜最終合格・面接のポイント
+                </h3>
+                <p class="text-slate-700 bg-slate-50 rounded-2xl p-3 whitespace-pre-line border border-slate-100">${escapeHtml(selected.overview.secondExam)}</p>
+              </div>
+
+              <div>
+                <h3 class="text-xs font-extrabold text-navy-900 flex items-center gap-1.5 mb-1.5">
+                  <span class="w-1.5 h-4 rounded-full bg-amber-500 inline-block"></span>
+                  論文・専門記述の有無と形式
+                </h3>
+                <p class="text-slate-700 bg-amber-50/50 rounded-2xl p-3 whitespace-pre-line border border-amber-100">${escapeHtml(selected.overview.essayAndDesc)}</p>
+              </div>
+
+              <div>
+                <h3 class="text-xs font-extrabold text-navy-900 flex items-center gap-1.5 mb-1.5">
+                  <span class="w-1.5 h-4 rounded-full bg-emerald-600 inline-block"></span>
+                  配点・足切り・併願時の戦略ポイント
+                </h3>
+                <p class="text-slate-700 bg-emerald-50/50 rounded-2xl p-3 whitespace-pre-line border border-emerald-100">${escapeHtml(selected.overview.strategy)}</p>
+              </div>
+
+              <!-- 対象科目タグ -->
+              <div class="space-y-2.5 pt-1">
+                <div>
+                  <span class="block text-[11px] font-bold text-slate-500 mb-1.5">対象となる教養科目</span>
+                  <div class="flex flex-wrap gap-1.5">
+                    ${selected.overview.kyoyoTags.map(t => `<span class="px-2.5 py-1 rounded-lg bg-blue-50 text-blue-700 border border-blue-200/70 text-[11px] font-semibold">${escapeHtml(t)}</span>`).join('')}
+                  </div>
+                </div>
+                <div>
+                  <span class="block text-[11px] font-bold text-slate-500 mb-1.5">対象となる専門科目</span>
+                  <div class="flex flex-wrap gap-1.5">
+                    ${selected.overview.senmonTags.length > 0
+                      ? selected.overview.senmonTags.map(t => `<span class="px-2.5 py-1 rounded-lg bg-indigo-50 text-indigo-700 border border-indigo-200/70 text-[11px] font-semibold">${escapeHtml(t)}</span>`).join('')
+                      : `<span class="px-2.5 py-1 rounded-lg bg-slate-100 text-slate-500 text-[11px] font-semibold">専門試験なし（教養・論文・面接中心）</span>`}
+                  </div>
+                </div>
+              </div>
+
+              <div class="pt-2 border-t border-slate-100 flex items-center justify-between">
+                <span class="text-[10px] text-slate-400">※最新の公式受験案内が公表されたら細部もご確認ください</span>
+                <button type="button" id="guideEditScheduleBtn" class="px-3 py-1.5 rounded-xl bg-slate-100 hover:bg-blue-50 text-blue-700 text-xs font-bold">日程を編集</button>
+              </div>
+            </div>
+          </article>
+        </div>
+      `;
+    }
+
+    function renderGuideMatrixView() {
+      const examsToShow = uiState.matrixTargetOnly
+        ? EXAM_MASTER.filter(m => appState.exams[m.id]?.isTarget)
+        : EXAM_MASTER;
+
+      const rowsToShow = SUBJECT_MATRIX_DEF.filter(r => uiState.matrixCategory === 'all' || r.cat === uiState.matrixCategory);
+
+      const cellBadge = (code) => {
+        switch (code) {
+          case 'req':
+            return `<span class="inline-block px-2 py-0.5 rounded-md bg-rose-100 text-rose-800 font-extrabold text-[11px]">◎必須</span>`;
+          case 'opt':
+            return `<span class="inline-block px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold text-[11px]">○選択</span>`;
+          case 'essay':
+            return `<span class="inline-block px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold text-[11px]">△記述</span>`;
+          default:
+            return `<span class="text-slate-300 font-bold text-xs">ー</span>`;
+        }
+      };
+
+      return `
+        <div class="space-y-3.5">
+          <!-- フィルタ＆凡例 -->
+          <div class="bg-white rounded-3xl p-3.5 shadow-sm border border-slate-200/70 space-y-2.5">
+            <div class="flex items-center justify-between gap-2 flex-wrap">
+              <label class="inline-flex items-center gap-2 text-xs font-bold text-navy-900 cursor-pointer">
+                <input type="checkbox" id="matrixTargetToggle" ${uiState.matrixTargetOnly ? 'checked' : ''} class="w-4 h-4 rounded accent-blue-600">
+                <span>志望区分のみ表示</span>
+              </label>
+              <div class="inline-flex bg-slate-100 p-0.5 rounded-xl text-[11px] font-bold">
+                ${['all', '教養', '専門'].map(c => `
+                  <button type="button" data-matrix-cat="${c}" class="matrix-cat-btn px-2.5 py-1 rounded-lg ${uiState.matrixCategory === c ? 'bg-white text-navy-900 shadow-2xs' : 'text-slate-500'}">${c === 'all' ? 'すべて' : c}</button>
+                `).join('')}
+              </div>
+            </div>
+            <div class="flex items-center flex-wrap gap-2 text-[11px] pt-1 border-t border-slate-100">
+              <span class="px-2 py-0.5 rounded-md bg-rose-100 text-rose-800 font-bold">◎必須</span>
+              <span class="px-2 py-0.5 rounded-md bg-blue-100 text-blue-800 font-bold">○選択</span>
+              <span class="px-2 py-0.5 rounded-md bg-amber-100 text-amber-800 font-bold">△記述/論文</span>
+              <span class="text-slate-400">ー なし</span>
+            </div>
+          </div>
+
+          ${examsToShow.length === 0 ? `
+            <div class="bg-white rounded-3xl p-8 text-center border border-slate-200/70">
+              <p class="text-sm font-bold text-slate-600">志望区分が選択されていません</p>
+              <p class="text-xs text-slate-400 mt-1">チェックを外すか、「区分・設定」タブで志望試験を選んでください。</p>
+            </div>
+          ` : `
+            <!-- 各試験の必要科目数サマリー（横スクロールカード） -->
+            <section>
+              <p class="text-[11px] font-bold text-slate-500 px-1 mb-2">試験ごとの必要科目数・解答数（横スクロール）</p>
+              <div class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1">
+                ${examsToShow.map(m => `
+                  <div class="shrink-0 w-56 bg-white rounded-2xl p-3 border border-slate-200/80 shadow-2xs">
+                    <div class="flex items-center justify-between gap-1 mb-1.5">
+                      <span class="text-xs font-extrabold text-navy-900 truncate">${escapeHtml(m.shortName)}</span>
+                      ${appState.exams[m.id]?.isTarget ? `<span class="text-[10px] font-bold text-blue-600">★志望</span>` : ''}
+                    </div>
+                    <div class="space-y-1 text-[11px]">
+                      <div class="bg-blue-50/70 rounded-lg px-2 py-1 text-slate-700">
+                        <span class="font-bold text-blue-700">教養：</span>${escapeHtml(m.reqSummary.kyoyo)}
+                      </div>
+                      <div class="bg-indigo-50/70 rounded-lg px-2 py-1 text-slate-700">
+                        <span class="font-bold text-indigo-700">専門：</span>${escapeHtml(m.reqSummary.senmon)}
+                      </div>
+                    </div>
+                  </div>
+                `).join('')}
+              </div>
+            </section>
+
+            <!-- 科目比較マトリクス（左端列sticky固定＋必要科目数ヘッダー付き） -->
+            <section class="bg-white rounded-3xl shadow-sm border border-slate-200/80 overflow-hidden">
+              <div class="px-4 py-2.5 bg-slate-50 border-b border-slate-200/80 flex items-center justify-between text-[11px] text-slate-500">
+                <span class="font-bold text-navy-900">科目比較マトリクス表</span>
+                <span>← 横にスクロールできます →</span>
+              </div>
+              <div class="overflow-x-auto">
+                <table class="w-full border-collapse text-left">
+                  <thead>
+                    <tr class="bg-navy-900 text-white align-top">
+                      <th class="sticky left-0 z-20 bg-navy-900 px-3 py-3 text-xs font-bold min-w-[116px] sticky-col-shadow border-r border-white/10">
+                        科目名
+                      </th>
+                      ${examsToShow.map(m => `
+                        <th class="px-2.5 py-2.5 text-center min-w-[118px] border-r border-white/10 last:border-r-0">
+                          <div class="text-xs font-extrabold leading-tight">${escapeHtml(m.shortName)}</div>
+                          <div class="mt-1.5 space-y-1 text-[9.5px] font-medium leading-tight text-left">
+                            <div class="bg-white/12 rounded px-1.5 py-1 text-blue-100">教:${escapeHtml(m.reqSummary.kyoyo)}</div>
+                            <div class="bg-white/12 rounded px-1.5 py-1 text-indigo-100">専:${escapeHtml(m.reqSummary.senmon)}</div>
+                          </div>
+                        </th>
+                      `).join('')}
+                    </tr>
+                  </thead>
+                  <tbody class="divide-y divide-slate-100">
+                    ${rowsToShow.map(row => `
+                      <tr class="hover:bg-blue-50/30 transition-colors">
+                        <td class="sticky left-0 z-10 bg-white px-3 py-2.5 sticky-col-shadow border-r border-slate-100">
+                          <span class="inline-block text-[9px] font-bold px-1.5 py-0.5 rounded ${row.cat === '教養' ? 'bg-blue-50 text-blue-700' : 'bg-indigo-50 text-indigo-700'} mb-0.5">${row.cat}</span>
+                          <div class="text-xs font-bold text-slate-800 leading-tight">${escapeHtml(row.name)}</div>
+                        </td>
+                        ${examsToShow.map(m => `
+                          <td class="px-2 py-2.5 text-center border-r border-slate-100/80 last:border-r-0 whitespace-nowrap">
+                            ${cellBadge(row.map[m.id])}
+                          </td>
+                        `).join('')}
+                      </tr>
+                    `).join('')}
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          `}
+        </div>
+      `;
+    }
+
+    function bindGuideEvents() {
+      document.querySelectorAll('.guide-sub-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          uiState.guideSubTab = btn.dataset.guideSub;
+          renderApp();
+        });
+      });
+
+      document.querySelectorAll('.guide-exam-pill').forEach(btn => {
+        btn.addEventListener('click', () => {
+          uiState.selectedGuideExamId = btn.dataset.selectGuide;
+          renderApp();
+        });
+      });
+
+      const guideTargetBtn = document.getElementById('guideToggleTargetBtn');
+      if (guideTargetBtn) {
+        guideTargetBtn.addEventListener('click', () => {
+          const u = appState.exams[uiState.selectedGuideExamId];
+          if (!u) return;
+          u.isTarget = !u.isTarget;
+          appState.hasEditedSchedule = true;
+          saveState();
+          renderApp();
+        });
+      }
+
+      const guideEditSchedBtn = document.getElementById('guideEditScheduleBtn');
+      if (guideEditSchedBtn) {
+        guideEditSchedBtn.addEventListener('click', () => openExamEditModal(uiState.selectedGuideExamId));
+      }
+
+      const matrixToggle = document.getElementById('matrixTargetToggle');
+      if (matrixToggle) {
+        matrixToggle.addEventListener('change', (e) => {
+          uiState.matrixTargetOnly = e.target.checked;
+          renderApp();
+        });
+      }
+
+      document.querySelectorAll('.matrix-cat-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          uiState.matrixCategory = btn.dataset.matrixCat;
+          renderApp();
+        });
+      });
+    }
+
+    /* -------------------------------------------------------------------------
+       6-5. 区分・設定タブ
+       ------------------------------------------------------------------------- */
+    function renderSettingsTab() {
+      const lastBackupText = appState.lastBackupAt
+        ? new Date(appState.lastBackupAt).toLocaleString('ja-JP')
+        : 'まだバックアップ保存されていません';
+
+      return `
+        <div class="space-y-4">
+          <!-- 志望区分の選択 -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70">
+            <h2 class="text-sm font-bold text-navy-900">志望試験区分の選択</h2>
+            <p class="text-[11px] text-slate-500 mt-0.5 mb-3">チェックを入れた区分がホーム・日程重複チェック・「志望のみ」フィルタの対象になります。</p>
+            <div class="space-y-2">
+              ${EXAM_MASTER.map(m => {
+                const u = appState.exams[m.id];
+                return `
+                  <label class="flex items-center justify-between gap-3 p-3 rounded-2xl border ${u.isTarget ? 'bg-blue-50/50 border-blue-200' : 'bg-slate-50/70 border-slate-200/70'} cursor-pointer transition-colors">
+                    <div class="min-w-0">
+                      <p class="text-xs font-bold text-navy-900 truncate">${escapeHtml(m.name)}</p>
+                      <p class="text-[11px] text-slate-500 mt-0.5">1次：${u.firstExamDate ? formatDateShort(u.firstExamDate) : '日程未定 (TBD)'}</p>
+                    </div>
+                    <input type="checkbox" data-setting-target="${m.id}" ${u.isTarget ? 'checked' : ''} class="setting-target-chk w-5 h-5 rounded accent-blue-600 shrink-0">
+                  </label>
+                `;
+              }).join('')}
+            </div>
+          </section>
+
+          <!-- 目標基準日設定 -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70 space-y-2.5">
+            <div>
+              <h2 class="text-sm font-bold text-navy-900">予備の目標基準日（期間ノルマ計算用）</h2>
+              <p class="text-[11px] text-slate-500 mt-0.5">志望試験に確定日がある場合は直近の試験日が自動採用されます。未定試験のみ志望している場合、この日付を基準にノルマを自動換算します。</p>
+            </div>
+            <div class="flex items-center gap-2">
+              <input type="date" id="fallbackGoalDateInput" value="${escapeHtml(appState.fallbackGoalDate)}" class="flex-1 px-3.5 py-2.5 rounded-xl border border-slate-200 text-sm bg-white">
+              <button type="button" id="saveFallbackGoalBtn" class="px-4 py-2.5 rounded-xl bg-navy-900 hover:bg-navy-800 text-white text-xs font-bold">適用</button>
+            </div>
+          </section>
+
+          <!-- バックアップ保存＆復元 -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-slate-200/70 space-y-3">
+            <div>
+              <h2 class="text-sm font-bold text-navy-900">データバックアップ＆復元（JSON）</h2>
+              <p class="text-[11px] text-slate-500 mt-1 leading-relaxed">データは端末のSafari内部に自動保存されます。履歴消去や7日以上の放置によるデータ消失に備え、週1回程度のバックアップ保存をおすすめします。</p>
+            </div>
+            <div class="bg-slate-50 rounded-2xl px-3.5 py-2.5 border border-slate-200/70 text-[11px] text-slate-600">
+              最終バックアップ：<strong class="text-navy-900">${escapeHtml(lastBackupText)}</strong>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5">
+              <button type="button" id="btnExportBackup" class="w-full py-3 px-4 rounded-2xl bg-blue-600 hover:bg-blue-700 text-white text-xs font-bold shadow-sm flex items-center justify-center gap-2 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/></svg>
+                <span>バックアップ保存</span>
+              </button>
+              <button type="button" id="btnImportBackup" class="w-full py-3 px-4 rounded-2xl bg-white hover:bg-slate-50 text-navy-900 border border-slate-300 text-xs font-bold flex items-center justify-center gap-2 transition-colors">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12"/></svg>
+                <span>バックアップ復元</span>
+              </button>
+            </div>
+          </section>
+
+          <!-- iPhone ホーム画面追加ガイド -->
+          <section class="bg-blue-50/70 rounded-3xl p-4 border border-blue-200/70 space-y-1.5">
+            <h2 class="text-xs font-extrabold text-navy-900">iPhoneアプリとして使うヒント</h2>
+            <p class="text-[11px] text-slate-600 leading-relaxed">
+              Safari下部の「共有ボタン（□に↑）」→「ホーム画面に追加」を選ぶと、全画面のアプリとして起動できます。
+            </p>
+          </section>
+
+          <!-- 全データ初期化 -->
+          <section class="bg-white rounded-3xl p-4 shadow-sm border border-rose-200/80 space-y-2.5">
+            <h2 class="text-sm font-bold text-rose-700">全データの初期化</h2>
+            <p class="text-[11px] text-slate-500">すべての学習進捗・章データ・予定・日程編集を「0（初期状態）」にリセットします。</p>
+            <button type="button" id="btnResetAll" class="w-full py-2.5 rounded-2xl bg-rose-50 hover:bg-rose-100 text-rose-700 border border-rose-200 text-xs font-bold transition-colors">すべてのデータを初期状態に戻す</button>
+          </section>
+        </div>
+      `;
+    }
+
+    function bindSettingsEvents() {
+      document.querySelectorAll('.setting-target-chk').forEach(chk => {
+        chk.addEventListener('change', (e) => {
+          const id = e.target.dataset.settingTarget;
+          if (!appState.exams[id]) return;
+          appState.exams[id].isTarget = e.target.checked;
+          appState.hasEditedSchedule = true;
+          saveState();
+          renderApp();
+        });
+      });
+
+      document.getElementById('saveFallbackGoalBtn').addEventListener('click', () => {
+        const val = document.getElementById('fallbackGoalDateInput').value;
+        if (!val) {
+          showToast('日付を選択してください', 'error');
+          return;
+        }
+        appState.fallbackGoalDate = val;
+        saveState();
+        showToast('予備の目標基準日を保存しました');
+        renderApp();
+      });
+
+      document.getElementById('btnExportBackup').addEventListener('click', exportBackupJson);
+      document.getElementById('btnImportBackup').addEventListener('click', () => {
+        document.getElementById('importFileInput').click();
+      });
+
+      document.getElementById('btnResetAll').addEventListener('click', () => {
+        openConfirmModal({
+          title: '全データを初期化しますか？',
+          message: 'すべての学習記録・章データ・マイ予定・手動編集した日程がリセットされ、初期状態（すべて0）に戻ります。\n必要であれば先にバックアップを保存してください。',
+          confirmLabel: '初期化する',
+          danger: true,
+          onConfirm: () => {
+            appState = createInitialState();
+            uiState.expandedSubjectIds.clear();
+            uiState.dismissedBackupBanner = false;
+            saveState();
+            showToast('すべてのデータを初期化しました');
+            renderApp();
+          }
+        });
+      });
+    }
+
+    /* =========================================================================
+       7. ナビゲーション初期化＆初回起動
+       ========================================================================= */
+    document.querySelectorAll('#bottomNav .nav-btn').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const tab = btn.dataset.tab;
+        if (uiState.activeTab === tab) return;
+        uiState.activeTab = tab;
+        renderApp();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+    });
+
+    // 初回描画
+    renderApp();
+  </script>
+</body>
+</html>
